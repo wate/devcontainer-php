@@ -31,4 +31,3 @@ services:
       - "8025:8025"
 volumes:
   mariadb-data:
-
