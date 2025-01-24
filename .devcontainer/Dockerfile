@@ -15,6 +15,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql intl zip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
+# Install node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x -o nodesource_setup.sh \
     && bash nodesource_setup.sh \
     && apt-get install -y nodejs \
