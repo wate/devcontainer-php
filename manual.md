@@ -53,8 +53,11 @@ direnv allow
 #### IdeHelperプラグインのインストール
 
 ```sh
+## IdeHelperプラグインのインストール
 composer require --dev dereuromark/cakephp-ide-helper
+## IdeHelperプラグインのロード 
 bin/cake plugin load IdeHelper --only-debug --only-cli
 ```
 
+IdeHelperプラグインの利用方法は、以下のURLを参照してください。
 https://github.com/dereuromark/cakephp-ide-helper/tree/master/docs
