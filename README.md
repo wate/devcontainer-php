@@ -1,17 +1,10 @@
 devcontainer-php
 =====================
 
-PHPプロジェクの作成
----------------------
+これは何?
+----------------------
 
-### CakePHP
+PHPプロジェクトの開発環境を構築するためのdev contaierの設定です。
 
-```sh
-composer create-project --prefer-dist --no-interaction --working-dir=/tmp cakephp/app:~5.0 phpproject
-rsync -a /tmp/phpproject/* ./ && rsync -a /tmp/phpproject/.??* ./ && rm -fr /tmp/phpproject
-## Webサーバー(Apache)のドキュメントルートのシンボリックリンクを変更
-sudo rm -rf /var/www/html
-sudo ln -s "${PWD}/webroot" /var/www/html
-## Webサーバー(Apache)を再起動
-apache2ctl restart
-```
+このdev containerを利用したPHPプロジェクトの作成手順については、
+[manual.md](manual.md)を参照してください。
