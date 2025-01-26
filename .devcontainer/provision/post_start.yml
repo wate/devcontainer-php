@@ -1,0 +1,13 @@
+---
+# code: language=ansible
+# yaml-language-server: $schema=https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json
+- name: Setup post start task
+  hosts: all
+  connection: local
+  become: false
+  tasks:
+    - name: Set git safe.directory setting
+      community.general.git_config:
+        name: safe.directory
+        scope: global
+        value: "{{ ansible_facts.env.PWD | dirname | dirname }}"

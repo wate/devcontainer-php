@@ -1,20 +1,48 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/php-mariadb
 {
-	"name": "PHP & MariaDB",
+	"name": "CakePHP",
 	"dockerComposeFile": "compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspaces",
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"php.validate.executablePath": "/usr/local/bin/php",
+				"yaml.schemas": {
+					"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+				},
+				"files.associations": {
+					"deploy.yml": "ansible",
+					"release.yml": "ansible"
+				},
+				"[markdown]": {
+					"editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+				}
+			},
+			"extensions": [
+				"mikestead.dotenv",
+				"EditorConfig.EditorConfig",
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint",
+				"bierner.github-markdown-preview",
+				"shd101wyy.markdown-preview-enhanced",
+				"xdebug.php-debug",
+				"bmewburn.vscode-intelephense-client",
+				"vscode-icons-team.vscode-icons",
+				"oderwat.indent-rainbow",
+				"hediet.vscode-drawio",
+				"redhat.vscode-yaml",
+				"redhat.ansible"
+			]
+		}
+	},
 	"forwardPorts": [
 		8080,
-		3306,
-		8025
+		8025,
+		1025,
+		3306
 	],
-	"remoteUser": "vscode",
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
-	// Configure tool-specific properties.
-	// "customizations": {},
+	"postCreateCommand": "if [ -f .devcontainer/provision/post_create.sh ]; then bash .devcontainer/provision/post_create.sh; fi",
+	"postStartCommand": "if [ -f .devcontainer/provision/post_start.sh ]; then bash .devcontainer/provision/post_start.sh; fi",
+	"shutdownAction": "stopCompose",
+	"remoteUser": "vscode"
 }

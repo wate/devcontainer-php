@@ -1,33 +1,41 @@
 services:
   app:
-    container_name: php
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ..:/workspaces:cached
+      args:
+        VARIANT: "8"
     environment:
       TZ: Asia/Tokyo
+    volumes:
+      - ..:/workspace:cached
+      - ./php/z-custom.ini:/usr/local/etc/php/conf.d/z-custom.ini
+    command: sleep infinity
     depends_on:
       - db
+      - mailpit
   db:
     image: mariadb:10.11
-    container_name: db
     restart: unless-stopped
     volumes:
+      - ./mariadb/z-customize.cnf:/etc/mysql/mariadb.conf.d/z-customize.cnf
+      - ./mariadb/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
       - mariadb-data:/var/lib/mysql
     environment:
+      TZ: Asia/Tokyo
       MYSQL_ROOT_PASSWORD: mariadb
-      MYSQL_DATABASE: mariadb
-      MYSQL_USER: mariadb
-      MYSQL_PASSWORD: mariadb
+      # MYSQL_DATABASE: app_dev
+      # MYSQL_USER: app_dev_user
+      # MYSQL_PASSWORD: app_dev_password
     ports:
       - "3306:3306"
   mailpit:
     image: axllent/mailpit:latest
-    container_name: mailpit
     restart: unless-stopped
     ports:
       - "8025:8025"
+      - "1025:1025"
+    environment:
+      TZ: Asia/Tokyo
 volumes:
   mariadb-data:
