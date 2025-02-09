@@ -93,6 +93,9 @@ fi
 if [ -f "$(dirname $0)/post_create.yml" ]; then
   ansible-playbook -i 127.0.0.1, -c local --diff "$(dirname $0)/post_create.yml"
 fi
+if [ -f "$(dirname $0)/verify.yml" ]; then
+  ansible-playbook -i 127.0.0.1, -c local --diff "$(dirname $0)/verify.yml"
+fi
 if [ -f "${PWD}/.devcontainer/custom.yml" ]; then
   ansible-playbook -i 127.0.0.1, -c local --diff "${PWD}/.devcontainer/custom.yml"
 fi
