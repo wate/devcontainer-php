@@ -1,5 +1,5 @@
 {
-	"name": "CakePHP",
+	"name": "php devcontainer",
 	"dockerComposeFile": "compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspace",

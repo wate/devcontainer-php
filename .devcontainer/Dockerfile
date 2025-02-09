@@ -25,7 +25,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x -o nodesource_setup.sh \
     && apt-get install -y nodejs \
     && rm nodesource_setup.sh  \
     && rm /usr/bin/yarn /usr/bin/yarnpkg && rm -fr /usr/share/yarn \
-    && npm i -g yarn @antfu/ni
+    && npm i -g yarn zx @antfu/ni
 
 ## Install tbls
 COPY --from=tbls /usr/bin/tbls /usr/local/bin/tbls
@@ -47,8 +47,7 @@ RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/loc
 ## Install pict
 RUN git clone https://github.com/microsoft/pict.git /usr/local/src/pict \
     && cd /usr/local/src/pict && make \
-    && mv /usr/local/src/pict/pict /usr/local/bin/pict \
-    && rm -fr /usr/local/src/pict
+    && ln -s /usr/local/src/pict/pict /usr/local/bin/pict
 
 ## Install d2
 RUN curl -fsSL https://d2lang.com/install.sh | sh -s --
