@@ -142,10 +142,12 @@
           community.general.npm:
             name: zx
             global: true
+            state: latest
         - name: Install/Update ni
           community.general.npm:
             name: "@antfu/ni"
             global: true
+            state: latest
     - name: Install pip packages
       block:
         - name: Install/update mycli
