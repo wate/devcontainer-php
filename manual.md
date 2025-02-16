@@ -182,6 +182,7 @@ CakePHPの各種プラグインのインストール手順
 ### AdminLTEプラグイン
 
 #### 1. AdminLTEプラグインのインストール
+
 以下のコマンドを実行し、CakeLte(AdminLTE)プラグインをインストールを行います。
 
 ```sh
@@ -223,3 +224,22 @@ bin/cake generate code_completion
 
 その他のIdeHelperプラグインの利用方法については、以下のURLを参照してください。
 https://github.com/dereuromark/cakephp-ide-helper/tree/master/docs
+
+Laravelの各種インテグレーションのインストール手順
+--------------------------
+
+### AdminLTEインテグレーション
+
+#### 1. AdminLTEインテグレーションをインストールする
+
+以下のコマンドを実行し、AdminLTEプラグインをインストールを行います。
+
+```sh
+composer require jeroennoten/laravel-adminlte
+```
+
+#### 2. パッケージリソースをインストールする
+
+```sh
+artisan adminlte:install
+```
