@@ -31,7 +31,11 @@
 				"oderwat.indent-rainbow",
 				"hediet.vscode-drawio",
 				"redhat.vscode-yaml",
-				"redhat.ansible"
+				"redhat.ansible",
+				"streetsidesoftware.code-spell-checker",
+				"mtxr.sqltools",
+				"mtxr.sqltools-driver-mysql",
+				"mtxr.sqltools-driver-sqlite"
 			]
 		}
 	},

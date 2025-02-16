@@ -1,0 +1,13 @@
+blockinfile
+dmode
+fmode
+fukushi
+gitprompt
+halfwidth
+hojodoushi
+hostmanager
+hostsupdater
+keishikimeishi
+modifyvm
+nakaguro
+superfences
