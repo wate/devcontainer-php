@@ -1,4 +1,5 @@
 ansible
+cakelte
 cakephp
 direnv
 github
