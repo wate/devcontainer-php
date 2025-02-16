@@ -179,7 +179,7 @@ EOS
 CakePHPの各種プラグインのインストール手順
 --------------------------
 
-### AdminLTEプラグイン
+### [AdminLTEプラグイン](https://github.com/arodu/cakelte)
 
 #### 1. AdminLTEプラグインのインストール
 
@@ -209,7 +209,7 @@ AdminLTEプラグインを利用して開発を行ってください。
 
 https://github.com/arodu/cakelte?tab=readme-ov-file#how-to-use
 
-### IdeHelperプラグイン
+### [IdeHelperプラグイン](https://github.com/dereuromark/cakephp-ide-helper)
 
 以下のコマンドを実行し、IdeHelperプラグインをインストールを行います。
 
@@ -228,7 +228,7 @@ https://github.com/dereuromark/cakephp-ide-helper/tree/master/docs
 Laravelの各種インテグレーションのインストール手順
 --------------------------
 
-### AdminLTEインテグレーション
+### [AdminLTEインテグレーション](https://jeroennoten.github.io/Laravel-AdminLTE/)
 
 #### 1. AdminLTEインテグレーションをインストールする
 
