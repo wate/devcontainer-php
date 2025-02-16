@@ -134,11 +134,26 @@ cp bin/bash_completion.sh ~/.local/share/bash-completion/completions/cake
 
 #### Laravelの場合
 
-以下のコマンドを実行し、Laravelの設定ファイルを生成します。
+以下のコマンドを実行し、Laravelの設定ファイルを更新します。
 
 ```sh
-cat <<EOS > config/.env
-EOS
+sed -i \
+-e 's/APP_TIMEZONE=.*/APP_TIMEZONE=Asia\/Tokyo/' \
+-e 's/APP_URL=.*/APP_URL=http:\/\/localhost:8080/' \
+-e 's/APP_LOCALE=.*/APP_LOCALE=ja_JP/' \
+-e 's/DB_CONNECTION=.*/DB_CONNECTION=mysql/' \
+-e 's/# DB_HOST=.*/DB_HOST=db/' \
+-e 's/# DB_PORT=.*/DB_PORT=3306/' \
+-e 's/# DB_DATABASE=.*/DB_DATABASE=app_dev/' \
+-e 's/# DB_USERNAME=.*/DB_USERNAME=app_dev/' \
+-e 's/# DB_PASSWORD=.*/DB_PASSWORD=app_dev_password/' \
+-e 's/MAIL_MAILER=.*/MAIL_MAILER=smtp/' \
+-e 's/MAIL_SCHEME=.*/MAIL_SCHEME=null/' \
+-e 's/MAIL_HOST=.*/MAIL_HOST=mailpit/' \
+-e 's/MAIL_PORT=.*/MAIL_PORT=1025/' \
+-e 's/MAIL_USERNAME=.*/MAIL_USERNAME=null/' \
+-e 's/MAIL_PASSWORD=.*/MAIL_PASSWORD=null/' \
+.env
 ```
 
 ##### 7-2. artisanコマンドのコマンド補完が効くようにします
@@ -146,8 +161,9 @@ EOS
 以下のコマンドを実行し、artisanコマンドのコマンド補完が効くようにします。
 
 ```sh
-cat <<EOS >> ~/.bashrc
+cat <<'EOS' >> ~/.bashrc
 # BEGIN artisan ANSIBLE MANAGED BLOCK
+eval "$(/workspace/artisan completion)"
 # END artisan ANSIBLE MANAGED BLOCK
 EOS
 ```
