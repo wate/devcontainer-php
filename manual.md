@@ -16,13 +16,13 @@ VSCodeを起動し、コマンドパレットを開き「開発コンテナー:�
 
 以下のコマンドを実行し、一時ディレクトリにPHPプロジェクトのスケルトンを作成します。
 
-### CakePHPの場合
+#### CakePHPの場合
 
 ```sh
 composer create-project --prefer-dist --no-interaction --working-dir=/tmp cakephp/app php_project
 ```
 
-### Laravelの場合
+#### Laravelの場合
 
 ```sh
 composer create-project --prefer-dist --no-interaction --working-dir=/tmp laravel/laravel php_project
@@ -78,6 +78,13 @@ apache2ctl restart
 
 ```sh
 cat <<EOS >> .gitignore
+### Cache file directory ###
+.cache
+*.cache
+
+### Ansible ###
+.ansible
+
 ### direnv ###
 .direnv
 .envrc
@@ -115,11 +122,36 @@ direnv allow
 ```sh
 cat <<EOS > config/.env
 export DEBUG="True"
+export APP_NAME="app"
 export APP_DEFAULT_LOCALE="ja_JP"
 export APP_DEFAULT_TIMEZONE="Asia/Tokyo"
-export DATABASE_URL="mysql://app_dev:app_dev_password@db/app_dev"
-export DATABASE_TEST_URL="mysql://app_test:app_test_password@db/app_test"
+
+## ---------------------
+## Database
+## ---------------------
+export DATABASE_URL="mysql://app_dev:app_dev_password@db/app_dev?encoding=utf8mb4&timezone=UTC&cacheMetadata=true&quoteIdentifiers=false&persistent=false"
+export DATABASE_TEST_URL="mysql://app_test:app_test_password@db/app_test?encoding=utf8mb4&timezone=UTC&cacheMetadata=true&quoteIdentifiers=false&persistent=false"
+
+## ---------------------
+## Email
+## ---------------------
 export EMAIL_TRANSPORT_DEFAULT_URL="smtp://mailpit:1025"
+## Example for Gmail
+# export EMAIL_TRANSPORT_DEFAULT_URL="smtp://my@gmail.com:secret@smtp.gmail.com:587?tls=true"
+
+## ---------------------
+## Cache
+## ---------------------
+# export CACHE_DURATION="+2 minutes"
+# export CACHE_DEFAULT_URL="file:///path/to/tmp/cache/?prefix=${APP_NAME}_default_&duration=${CACHE_DURATION}"
+# export CACHE_CAKECORE_URL="file:///path/to/tmp/cache/persistent?prefix=${APP_NAME}_cake_translations_&serialize=true&duration=${CACHE_DURATION}"
+# export CACHE_CAKEMODEL_URL="file:///path/to/tmp/cache/models?prefix=${APP_NAME}_cake_model_&serialize=true&duration=${CACHE_DURATION}"
+
+## ---------------------
+## Log
+## ---------------------
+# export LOG_DEBUG_URL="file:///path/to/logs/?levels[]=notice&levels[]=info&levels[]=debug&file=debug"
+# export LOG_ERROR_URL="file:///path/to/logs/?levels[]=warning&levels[]=error&levels[]=critical&levels[]=alert&levels[]=emergency&file=error"
 EOS
 ```
 
