@@ -5,6 +5,7 @@ cakephp
 direnv
 github
 gitleaks
+glightbox
 laravel
 linux
 mailpit
@@ -15,6 +16,7 @@ phpdocumentor
 phpstorm
 pict
 pipx
+plantuml
 postgres
 pymdownx
 redmine

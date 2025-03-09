@@ -11,3 +11,5 @@ keishikimeishi
 modifyvm
 nakaguro
 superfences
+venvs
+webroot
