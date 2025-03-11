@@ -1,0 +1,6 @@
+### Ansible ###
+.ansible
+.cache
+
+### dev container ###
+.devcontainer/provision/roles/
