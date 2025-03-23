@@ -11,6 +11,10 @@
       - task
       - d2
       - pict
+      - gitleaks
+      - fnt
+      - zx
+      - ni
   roles:
     - role: tools
       become: true
@@ -18,19 +22,6 @@
     - name: Install bash-completion
       ansible.builtin.apt:
         name: bash-completion
-    - name: Install npm packages
-      become: true
-      block:
-        - name: Install/Update zx
-          community.general.npm:
-            name: zx
-            global: true
-            state: latest
-        - name: Install/Update ni
-          community.general.npm:
-            name: "@antfu/ni"
-            global: true
-            state: latest
     - name: Install pip packages
       block:
         - name: Install/update mycli
@@ -91,10 +82,9 @@
             path: ~/.bashrc
             line: eval "$(direnv hook bash)"
         - name: Add eza setting
-          ansible.builtin.blockinfile:
+          ansible.builtin.lineinfile:
             path: ~/.bashrc
-            marker: "# {mark} eza ANSIBLE MANAGED BLOCK"
-            block: alias ls="eza --git --header"
+            line: alias ls="eza --git --header"
         - name: Setup bash-git-prompt
           block:
             - name: Checkout bash-git-prompt
