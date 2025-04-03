@@ -6,9 +6,12 @@ direnv
 github
 gitleaks
 glightbox
+graphviz
+imagemagick
 jsonfile
 laravel
 linux
+lnav
 mailpit
 mariadb
 mkdocs
@@ -20,8 +23,10 @@ pipx
 plantuml
 postgres
 pymdownx
+redhat
 redmine
 setext
+sshpass
 tbls
 textlint
 virtualbox
