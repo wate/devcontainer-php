@@ -280,8 +280,47 @@ http://localhost:8080/cake_lte/debug
 
 #### 3. デフォルトのテンプレートをAdminLTEプラグインに変更
 
-以下のURLの「How to use」に記載されている手順に従って、`src/View/AppView.php`の書き換えを行い、
-AdminLTEプラグインを利用して開発を行ってください。
+以下のコマンドを実行し、デフォルトのテンプレートをAdminLTEプラグインに変更します。
+
+```sh
+cat <<'EOS' >AppView.php.patch
+diff --git a/src/View/AppView.php b/src/View/AppView.php
+index 1bfd5dc..1c04886 100644
+--- a/src/View/AppView.php
++++ b/src/View/AppView.php
+@@ -16,6 +16,7 @@ declare(strict_types=1);
+ namespace App\View;
+
+ use Cake\View\View;
++use CakeLte\View\CakeLteTrait;
+
+ /**
+  * Application View
+@@ -26,6 +27,9 @@ use Cake\View\View;
+  */
+ class AppView extends View
+ {
++    use CakeLteTrait;
++    protected string $layout = 'CakeLte.default';
++
+     /**
+      * Initialization hook method.
+      *
+@@ -37,5 +41,7 @@ class AppView extends View
+      */
+     public function initialize(): void
+     {
++        parent::initialize();
++        $this->initializeCakeLte();
+     }
+ }
+EOS
+patch -p1 <AppView.php.patch
+rm AppView.php.patch
+```
+
+※手動で行う場合は以下のURLの「How to use」に記載されている手順に従って、
+`src/View/AppView.php`の修正を行ってください。
 
 https://github.com/arodu/cakelte?tab=readme-ov-file#how-to-use
 
