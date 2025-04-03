@@ -1,13 +1,16 @@
 antfu
 autoremove
+axllent
 behaviour
 CAKECORE
 CAKEMODEL
 dearmor
+devcontainers
 dotglob
 enmod
 envrc
 freetype
+getmeili
 gierens
 gitprompt
 initdb

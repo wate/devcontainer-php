@@ -14,7 +14,6 @@ services:
     command: sleep infinity
     depends_on:
       - db
-      - mailpit
   db:
     image: mariadb:10.11
     restart: unless-stopped
@@ -36,6 +35,12 @@ services:
     ports:
       - "8025:8025"
       - "1025:1025"
+    environment:
+      TZ: Asia/Tokyo
+  meilisearch:
+    image: getmeili/meilisearch:latest
+    ports:
+      - "7700:7700"
     environment:
       TZ: Asia/Tokyo
 volumes:

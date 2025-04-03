@@ -51,6 +51,7 @@
 		8080,
 		8025,
 		1025,
+		7700,
 		3306
 	],
 	"postCreateCommand": "if [ -f .devcontainer/provision/post_create.sh ]; then bash .devcontainer/provision/post_create.sh; fi",

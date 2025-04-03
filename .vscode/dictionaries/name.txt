@@ -16,6 +16,7 @@ linux
 lnav
 mailpit
 mariadb
+meilisearch
 mkdocs
 mycli
 phpdocumentor
