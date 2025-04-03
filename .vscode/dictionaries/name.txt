@@ -6,6 +6,7 @@ direnv
 github
 gitleaks
 glightbox
+jsonfile
 laravel
 linux
 mailpit
