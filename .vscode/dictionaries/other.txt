@@ -1,7 +1,10 @@
 antfu
 autoremove
 behaviour
+CAKECORE
+CAKEMODEL
 dearmor
+dotglob
 enmod
 envrc
 freetype
@@ -10,6 +13,7 @@ gitprompt
 initdb
 inputrc
 ipaexfont
+josegonzalez
 libfreetype
 libicu
 libjpeg
@@ -18,5 +22,7 @@ nodesource
 nodistro
 noninteractive
 Repolib
+shopt
 silversearcher
+webroot
 yarnpkg

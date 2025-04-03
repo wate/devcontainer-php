@@ -33,8 +33,8 @@ composer create-project --prefer-dist --no-interaction --working-dir=/tmp larave
 以下のコマンドを実行し、プロジェクトスケルトンをワーキングディレクトリーにコピーします。
 
 ```sh
+shopt -s dotglob
 rsync -a /tmp/php_project/* ./
-rsync -a /tmp/php_project/.??* ./
 ```
 
 ### 3. 一時ディレクトリを削除します

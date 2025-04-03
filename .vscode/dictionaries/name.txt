@@ -6,6 +6,7 @@ direnv
 github
 gitleaks
 glightbox
+Gmail
 graphviz
 imagemagick
 jsonfile
