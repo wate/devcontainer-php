@@ -37,11 +37,11 @@ services:
       - "1025:1025"
     environment:
       TZ: Asia/Tokyo
-  meilisearch:
-    image: getmeili/meilisearch:latest
-    ports:
-      - "7700:7700"
-    environment:
-      TZ: Asia/Tokyo
+  # meilisearch:
+  #   image: getmeili/meilisearch:latest
+  #   ports:
+  #     - "7700:7700"
+  #   environment:
+  #     TZ: Asia/Tokyo
 volumes:
   mariadb-data:
