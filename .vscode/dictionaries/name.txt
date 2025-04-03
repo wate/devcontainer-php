@@ -3,6 +3,7 @@ ansible
 cakelte
 cakephp
 direnv
+dotenv
 github
 gitleaks
 glightbox

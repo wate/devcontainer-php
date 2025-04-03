@@ -155,7 +155,51 @@ export EMAIL_TRANSPORT_DEFAULT_URL="smtp://mailpit:1025"
 EOS
 ```
 
-##### 7-2. cakeコマンドのコマンド補完が効くようにします
+##### 7-2. dotenvパッケージを必須パッケージに変更します
+
+以下のコマンドを実行し、`josegonzalez/dotenv`を必須パッケージとして指定します。
+
+```sh
+composer require josegonzalez/dotenv -q
+```
+
+##### 7-3. dotenvの設定を変更します
+
+以下のコマンドを実行し、`config/bootstrap.php`で`.env`を読み込む処理を有効化します。
+
+```sh
+cat <<'EOS' >bootstrap.php.patch
+diff --git a/config/bootstrap.php b/config/bootstrap.php
+index fa67096..1ef0f20 100644
+--- a/config/bootstrap.php
++++ b/config/bootstrap.php
+@@ -64,13 +64,13 @@ require CAKE . 'functions.php';
+  * security risks. See https://github.com/josegonzalez/php-dotenv#general-security-information
+  * for more information for recommended practices.
+ */
+-// if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
+-//     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
+-//     $dotenv->parse()
+-//         ->putenv()
+-//         ->toEnv()
+-//         ->toServer();
+-// }
++if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
++    $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
++    $dotenv->parse()
++        ->putenv()
++        ->toEnv()
++        ->toServer();
++}
+
+ /*
+  * Initializes default Config store and loads the main configuration file (app.php)
+EOS
+patch -p1 <bootstrap.php.patch
+rm bootstrap.php.patch
+```
+
+##### 7-4. cakeコマンドのコマンド補完が効くようにします
 
 以下のコマンドを実行し、cakeコマンドのコマンド補完が効くようにします。
 
