@@ -45,82 +45,18 @@ rsync -a /tmp/php_project/* ./
 rm -fr /tmp/php_project
 ```
 
-### 4. Webサーバー(Apache)ドキュメントルートの設定を変更します
-
-以下のコマンドを実行し、Webサーバー(Apache)のドキュメントルートを変更します。
-
-#### CakePHPの場合
-
-```sh
-sudo rm -rf /var/www/html
-sudo ln -s "${PWD}/webroot" /var/www/html
-```
-
-#### Laravelの場合
-
-```sh
-sudo rm -rf /var/www/html
-sudo ln -s "${PWD}/public" /var/www/html
-```
-
-### 4. Webサーバー(Apache)を再起動します
-
-以下のコマンドを実行し、Webサーバー(Apache)を再起動します。
-
-```sh
-apache2ctl restart
-```
-
-### 5. `.gitignore`に無視するファイルの設定を追記します
-
-以下のコマンドを実行し、direnvの設定ファイルなどを誤ってコミットしないように、
-`.gitignore`に設定を追記します。
-
-```sh
-cat <<EOS >> .gitignore
-### Cache file directory ###
-.cache
-*.cache
-
-### Ansible ###
-.ansible
-
-### direnv ###
-.direnv
-.envrc
-
-### dotenv ###
-.env
-EOS
-```
-
-### 6. direnvの設定ファイルを生成し、設定を有効化します
-
-以下のコマンドを実行し、direnvの設定ファイルを生成し、設定を有効化します。
-
-```sh
-cat <<EOS > .envrc
-PATH_add bin
-PATH_add .
-layout php
-layout node
-source_env_if_exists .env
-EOS
-direnv allow
-```
-
-### 7. フレームワークの初期セットアップを行います
+### 4. フレームワークの初期セットアップを行います
 
 以下のコマンドを実行し、クレームワークの設定ファイルを生成します。
 
 #### CakePHPの場合
 
-##### 7-1. CakePHPの設定ファイルを生成します
+##### 4-1. CakePHPの設定ファイルを生成します
 
 以下のコマンドを実行し、CakePHPの設定ファイルを生成します。
 
 ```sh
-cat <<EOS > config/.env
+cat <<'EOS' > config/.env
 export DEBUG="True"
 export APP_NAME="app"
 export APP_DEFAULT_LOCALE="ja_JP"
@@ -155,7 +91,7 @@ export EMAIL_TRANSPORT_DEFAULT_URL="smtp://mailpit:1025"
 EOS
 ```
 
-##### 7-2. dotenvパッケージを必須パッケージに変更します
+##### 4-2. dotenvパッケージを必須パッケージに変更します
 
 以下のコマンドを実行し、`josegonzalez/dotenv`を必須パッケージとして指定します。
 
@@ -163,7 +99,7 @@ EOS
 composer require josegonzalez/dotenv -q
 ```
 
-##### 7-3. dotenvの設定を変更します
+##### 4-3. dotenvの設定を変更します
 
 以下のコマンドを実行し、`config/bootstrap.php`で`.env`を読み込む処理を有効化します。
 
@@ -199,7 +135,7 @@ patch -p1 <bootstrap.php.patch
 rm bootstrap.php.patch
 ```
 
-##### 7-4. cakeコマンドのコマンド補完が効くようにします
+##### 4-4. cakeコマンドのコマンド補完が効くようにします
 
 以下のコマンドを実行し、cakeコマンドのコマンド補完が効くようにします。
 
@@ -209,6 +145,8 @@ cp bin/bash_completion.sh ~/.local/share/bash-completion/completions/cake
 ```
 
 #### Laravelの場合
+
+##### 4-1. Laravelの設定ファイルを更新します
 
 以下のコマンドを実行し、Laravelの設定ファイルを更新します。
 
@@ -232,7 +170,7 @@ sed -i \
 .env
 ```
 
-##### 7-2. artisanコマンドのコマンド補完が効くようにします
+##### 4-2. artisanコマンドのコマンド補完が効くようにします
 
 以下のコマンドを実行し、artisanコマンドのコマンド補完が効くようにします。
 
@@ -242,6 +180,62 @@ cat <<'EOS' >> ~/.bashrc
 eval "$(/workspace/artisan completion)"
 # END artisan ANSIBLE MANAGED BLOCK
 EOS
+```
+
+### 5. Webサーバー(Apache)ドキュメントルートの設定を変更します
+
+以下のコマンドを実行し、Webサーバー(Apache)のドキュメントルートを変更します。
+
+#### CakePHPの場合
+
+```sh
+sudo rm -rf /var/www/html
+sudo ln -s "${PWD}/webroot" /var/www/html
+```
+
+#### Laravelの場合
+
+```sh
+sudo rm -rf /var/www/html
+sudo ln -s "${PWD}/public" /var/www/html
+```
+
+### 6. `.gitignore`に無視するファイルの設定を追記します
+
+以下のコマンドを実行し、direnvの設定ファイルなどを誤ってコミットしないように、
+`.gitignore`に設定を追記します。
+
+```sh
+cat <<EOS >> .gitignore
+### Cache file directory ###
+.cache
+*.cache
+
+### Ansible ###
+.ansible
+
+### direnv ###
+.direnv
+.envrc
+
+### dotenv ###
+.env
+EOS
+```
+
+### 7. direnvの設定ファイルを生成し、設定を有効化します
+
+以下のコマンドを実行し、direnvの設定ファイルを生成し、設定を有効化します。
+
+```sh
+cat <<EOS > .envrc
+PATH_add bin
+PATH_add .
+layout php
+layout node
+source_env_if_exists .env
+EOS
+direnv allow
 ```
 
 ### 8. ローカル開発環境のURLを確認します
