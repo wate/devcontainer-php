@@ -9,10 +9,13 @@
       - osv-scanner
       - delta
       - task
-      - d2
       - pict
       - gitleaks
       - fnt
+      - d2
+      - graphviz
+      - plantuml
+      - mermaid-cli
       - zx
       - ni
   roles:
