@@ -93,7 +93,7 @@ EOS
 
 ##### 4-2. dotenvパッケージを必須パッケージに変更します
 
-以下のコマンドを実行し、`josegonzalez/dotenv`を必須パッケージとして指定します。
+以下のコマンドを実行し、必須パッケージとして`josegonzalez/dotenv`を指定します。
 
 ```sh
 composer require josegonzalez/dotenv -q
