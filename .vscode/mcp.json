@@ -10,7 +10,7 @@
     "markitdown": {
       "command": "uvx",
       "args": [
-        "markitdown-mcp",
+        "markitdown-mcp"
       ]
     },
     "playwright": {
