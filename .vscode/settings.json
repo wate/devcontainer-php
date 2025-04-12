@@ -2,20 +2,28 @@
   "[php]": {
     "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?"
   },
-  "sqltools.connections": [
-    {
-      "mysqlOptions": {
-        "authProtocol": "default",
-        "enableSsl": "Disabled"
-      },
-      "previewLimit": 50,
-      "server": "db",
-      "port": 3306,
-      "driver": "MariaDB",
-      "name": "lde",
-      "database": "app_dev",
-      "username": "app_dev",
-      "password": "app_dev_password"
-    }
-  ]
+  // "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  // "github.copilot.chat.codeGeneration.instructions": [
+  //   {
+  //     "file": ".editorconfig"
+  //   },
+  //   {
+  //     "file": "phpcs.xml"
+  //   },
+  //   {
+  //     "file": "phpstan.neon"
+  //   },
+  //   {
+  //     "file": ".prettierrc.yml"
+  //   },
+  //   {
+  //     "file": ".yamllint"
+  //   },
+  //   {
+  //     "file": ".markdownlint.yml"
+  //   },
+  //   {
+  //     "file": ".textlintrc.yml"
+  //   }
+  // ]
 }

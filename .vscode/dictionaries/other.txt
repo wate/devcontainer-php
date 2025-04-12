@@ -30,6 +30,7 @@ noninteractive
 Repolib
 shopt
 silversearcher
+Taskfile
 venvs
 webroot
 yarnpkg
