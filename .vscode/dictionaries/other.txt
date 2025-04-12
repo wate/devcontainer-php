@@ -20,6 +20,8 @@ josegonzalez
 libfreetype
 libicu
 libjpeg
+libpango
+libpangoft
 libzip
 myclirc
 nodesource
