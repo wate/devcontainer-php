@@ -5,6 +5,7 @@ cakephp
 direnv
 dotenv
 github
+gitingest
 gitleaks
 glightbox
 Gmail

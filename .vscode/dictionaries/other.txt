@@ -21,11 +21,13 @@ libfreetype
 libicu
 libjpeg
 libzip
+myclirc
 nodesource
 nodistro
 noninteractive
 Repolib
 shopt
 silversearcher
+venvs
 webroot
 yarnpkg
