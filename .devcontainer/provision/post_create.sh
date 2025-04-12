@@ -57,6 +57,11 @@ smart_completion = True
 # lines. End of line (return) is considered as the end of the statement.
 multi_line = False
 
+# Destructive warning mode will alert you before executing a sql statement
+# that may cause harm to the database such as "drop table", "drop database"
+# or "shutdown".
+destructive_warning = False
+
 # Enable the pager on startup.
 enable_pager = False
 
