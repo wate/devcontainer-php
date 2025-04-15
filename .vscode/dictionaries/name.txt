@@ -4,6 +4,7 @@ cakelte
 cakephp
 direnv
 dotenv
+duckdb
 github
 gitingest
 gitleaks

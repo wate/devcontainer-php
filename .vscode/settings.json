@@ -2,28 +2,29 @@
   "[php]": {
     "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?"
   },
-  // "github.copilot.chat.codeGeneration.useInstructionFiles": true,
-  // "github.copilot.chat.codeGeneration.instructions": [
-  //   {
-  //     "file": ".editorconfig"
-  //   },
-  //   {
-  //     "file": "phpcs.xml"
-  //   },
-  //   {
-  //     "file": "phpstan.neon"
-  //   },
-  //   {
-  //     "file": ".prettierrc.yml"
-  //   },
-  //   {
-  //     "file": ".yamllint"
-  //   },
-  //   {
-  //     "file": ".markdownlint.yml"
-  //   },
-  //   {
-  //     "file": ".textlintrc.yml"
-  //   }
-  // ]
+  "files.defaultLanguage": "markdown",
+  "files.associations": {
+    "*.pict": "powershell",
+  },
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".editorconfig"
+    },
+    {
+      "file": ".markdownlint.yml"
+    },
+    {
+      "file": "phpcs.xml"
+    },
+    {
+      "file": "phpstan.neon"
+    },
+    {
+      "file": ".prettierrc.yml"
+    },
+    {
+      "file": ".textlintrc.yml"
+    }
+  ]
 }
