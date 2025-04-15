@@ -25,10 +25,6 @@
     - role: tools
       become: true
   tasks:
-    - name: Install bash-completion
-      ansible.builtin.apt:
-        name: bash-completion
-      become: true
     - name: Install pip packages
       block:
         - name: Install/update mycli

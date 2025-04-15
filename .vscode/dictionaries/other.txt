@@ -23,7 +23,9 @@ libjpeg
 libpango
 libpangoft
 libzip
+localectl
 myclirc
+mysqld
 nodesource
 nodistro
 noninteractive
