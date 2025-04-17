@@ -9,6 +9,7 @@
     install_tools:
       - osv-scanner
       - delta
+      - lazygit
       - task
       - pict
       - duckdb
@@ -84,10 +85,14 @@
           ansible.builtin.lineinfile:
             path: ~/.bashrc
             line: eval "$(direnv hook bash)"
-        - name: Add eza setting
+        - name: Set eza alias
           ansible.builtin.lineinfile:
             path: ~/.bashrc
             line: alias ls="eza --git --header"
+        - name: Set lazygit alias
+          ansible.builtin.lineinfile:
+            path: ~/.bashrc
+            line: alias lg="lazygit"
         - name: Setup bash-git-prompt
           block:
             - name: Checkout bash-git-prompt
