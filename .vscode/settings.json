@@ -7,24 +7,5 @@
     "*.pict": "powershell",
   },
   "github.copilot.chat.codeGeneration.useInstructionFiles": true,
-  "github.copilot.chat.codeGeneration.instructions": [
-    {
-      "file": ".editorconfig"
-    },
-    {
-      "file": ".markdownlint.yml"
-    },
-    {
-      "file": "phpcs.xml"
-    },
-    {
-      "file": "phpstan.neon"
-    },
-    {
-      "file": ".prettierrc.yml"
-    },
-    {
-      "file": ".textlintrc.yml"
-    }
-  ]
+  "github.copilot.chat.codeGeneration.instructions": []
 }
