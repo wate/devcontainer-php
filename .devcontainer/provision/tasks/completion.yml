@@ -22,4 +22,3 @@
   ansible.builtin.lineinfile:
     path: ~/.bashrc
     line: eval "$(phpdoc completion)"
-

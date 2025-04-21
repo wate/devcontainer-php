@@ -12,6 +12,7 @@
       - lazygit
       - task
       - pict
+      - glow
       - duckdb
       - gitleaks
       - github-cli
