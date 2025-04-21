@@ -59,7 +59,7 @@
         path: "{{ base_dir }}/{{ dir_path }}"
         state: directory
         mode: "0755"
-      loop: "{{ skeleton_files | map('dirname') | map('regex_replace', '^skel/', '') | unique }}"
+      loop: "{{ skeleton_files | map('dirname') | map('regex_replace', '^skel/?', '') | select() | unique }}"
       loop_control:
         loop_var: dir_path
         label: "{{ dir_path }}"

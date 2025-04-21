@@ -32,6 +32,7 @@ noninteractive
 Repolib
 shopt
 silversearcher
+skel
 Taskfile
 venvs
 webroot

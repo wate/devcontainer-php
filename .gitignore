@@ -7,5 +7,5 @@
 
 ### The following should be deleted in the actual project ###
 ### 実際のプロジェクトでは以下の内容は削除すること ###
-.github/
-docs/
+/.github/
+/docs/
