@@ -46,6 +46,7 @@
       ansible.builtin.find:
         paths:
           - skel
+        hidden: true
         excludes:
           - .gitkeep
         recurse: true
