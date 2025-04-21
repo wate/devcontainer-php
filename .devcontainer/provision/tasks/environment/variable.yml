@@ -1,0 +1,15 @@
+---
+# code: language=ansible
+- name: Set tbls setting
+  ansible.builtin.blockinfile:
+    path: ~/.bashrc
+    marker: "# {mark} tbls ANSIBLE MANAGED BLOCK"
+    block: |
+      export TBLS_DSN="mariadb://app_dev:app_dev_password@db:3306/app_dev"
+      export TBLS_DOC_PATH="docs/schema"
+- name: Set phpDocumentor Generate diagram setting
+  ansible.builtin.blockinfile:
+    path: ~/.bashrc
+    marker: "# {mark} Generate diagrams ANSIBLE MANAGED BLOCK"
+    block: |
+      export PHPDOC_PLANTUML_BIN=/usr/bin/plantuml

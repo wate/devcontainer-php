@@ -1,0 +1,10 @@
+---
+# code: language=ansible
+- name: Set eza alias
+  ansible.builtin.lineinfile:
+    path: ~/.bashrc
+    line: alias ls="eza --git --header"
+- name: Set lazygit alias
+  ansible.builtin.lineinfile:
+    path: ~/.bashrc
+    line: alias lg="lazygit"

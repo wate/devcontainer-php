@@ -36,6 +36,8 @@
         "xdebug.php-debug",
         "bmewburn.vscode-intelephense-client",
         "SanderRonde.phpstan-vscode",
+        "esbenp.prettier-vscode",
+        "adpyke.vscode-sql-formatter",
         "vscode-icons-team.vscode-icons",
         "oderwat.indent-rainbow",
         "mechatroner.rainbow-csv",
@@ -43,8 +45,7 @@
         "redhat.vscode-yaml",
         "redhat.ansible",
         "streetsidesoftware.code-spell-checker",
-        "dbcode.dbcode",
-        "adpyke.vscode-sql-formatter"
+        "dbcode.dbcode"
       ]
     }
   },
@@ -54,7 +55,7 @@
     8025,
     1025,
     3306,
-    // 7700
+    7700
   ],
   "postCreateCommand": "if [ -f .devcontainer/provision/post_create.sh ]; then bash .devcontainer/provision/post_create.sh; fi",
   "postStartCommand": "if [ -f .devcontainer/provision/post_start.sh ]; then bash .devcontainer/provision/post_start.sh; fi",

@@ -99,7 +99,7 @@ EOS
 composer require josegonzalez/dotenv -q
 ```
 
-##### 4-3. dotenvの設定を変更します
+##### 4-3. `bootstrap.php`で`.env`を読み込む処理を有効化します
 
 以下のコマンドを実行し、`config/bootstrap.php`で`.env`を読み込む処理を有効化します。
 
@@ -213,6 +213,7 @@ cat <<EOS >> .gitignore
 
 ### Ansible ###
 .ansible
+.devcontainer/provision/roles/
 
 ### direnv ###
 .direnv

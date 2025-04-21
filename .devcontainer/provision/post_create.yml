@@ -14,6 +14,7 @@
       - pict
       - duckdb
       - gitleaks
+      - github-cli
       - fnt
       - d2
       # - graphviz
@@ -22,129 +23,51 @@
       - zx
       - ni
       - phpDocumentor
+    github_cli_extensions:
+      - github/gh-copilot
   roles:
     - role: tools
       become: true
   tasks:
     - name: Install pip packages
-      block:
-        - name: Install/update mycli
-          community.general.pipx:
-            name: mycli
-            install_deps: true
-            state: latest
-        - name: Install/update pre-commit
-          community.general.pipx:
-            name: pre-commit
-            install_deps: true
-            state: latest
-        - name: Install/update mkdocs
-          community.general.pipx:
-            name: mkdocs
-            install_deps: true
-            state: latest
-            include_injected: true
-        - name: Inject mkdocs packages
-          community.general.pipx:
-            name: mkdocs
-            state: inject
-            inject_packages:
-              - mkdocs-material
-              - mkdocs-git-revision-date-localized-plugin
-              - mkdocs-glightbox
-              - mkdocs-d2-plugin
-              - plantuml-markdown
-        - name: Update Ansible
-          community.general.pipx:
-            name: ansible
-            install_deps: true
-            state: latest
-            include_injected: true
-        - name: Inject ansible packages
-          community.general.pipx:
-            name: ansible
-            state: inject
-            install_apps: true
-            inject_packages:
-              - ansible-lint
-    - name: Set user setting
-      block:
-        - name: Set git safe.directory setting
-          community.general.git_config:
-            name: safe.directory
-            scope: global
-            value: "{{ ansible_facts.env.PWD | dirname | dirname }}"
-        - name: Set completion ignore-case
-          ansible.builtin.lineinfile:
-            path: ~/.inputrc
-            regex: ^set completion-ignore-case
-            line: set completion-ignore-case On
-            create: true
-            mode: "0644"
-        - name: Add direnv setting
-          ansible.builtin.lineinfile:
-            path: ~/.bashrc
-            line: eval "$(direnv hook bash)"
-        - name: Set eza alias
-          ansible.builtin.lineinfile:
-            path: ~/.bashrc
-            line: alias ls="eza --git --header"
-        - name: Set lazygit alias
-          ansible.builtin.lineinfile:
-            path: ~/.bashrc
-            line: alias lg="lazygit"
-        - name: Setup bash-git-prompt
-          block:
-            - name: Checkout bash-git-prompt
-              ansible.builtin.git:
-                repo: https://github.com/magicmonty/bash-git-prompt.git
-                dest: ~/.bash-git-prompt
-                version: master
-                depth: 1
-            - name: Add bash-git-prompt setting
-              ansible.builtin.blockinfile:
-                path: ~/.bashrc
-                marker: "# {mark} bash-git-prompt setting ANSIBLE MANAGED BLOCK"
-                block: |
-                  if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-                      GIT_PROMPT_ONLY_IN_REPO=1
-                      source $HOME/.bash-git-prompt/gitprompt.sh
-                  fi
-        - name: Add tbls setting
-          ansible.builtin.blockinfile:
-            path: ~/.bashrc
-            marker: "# {mark} tbls ANSIBLE MANAGED BLOCK"
-            block: |
-              export TBLS_DSN="mariadb://app_dev:app_dev_password@db:3306/app_dev"
-              export TBLS_DOC_PATH="docs/schema"
-        - name: Add phpDocumentor Generate diagram setting
-          ansible.builtin.blockinfile:
-            path: ~/.bashrc
-            marker: "# {mark} Generate diagrams ANSIBLE MANAGED BLOCK"
-            block: |
-              export PHPDOC_PLANTUML_BIN=/usr/bin/plantuml
-        - name: Set git safe.directory setting
-          community.general.git_config:
-            name: safe.directory
-            scope: global
-            value: "{{ ansible_facts.env.PWD | dirname | dirname }}"
-    - name: Add bash-completion files
-      block:
-        - name: Create bash-completion setting directory
-          ansible.builtin.file:
-            path: ~/.local/share/bash-completion/completions
-            state: directory
-            mode: "0755"
-        - name: Add npm command completion setting
-          ansible.builtin.lineinfile:
-            path: ~/.bashrc
-            line: eval "$(npm completion)"
-        - name: Add yarn command completion setting
-          ansible.builtin.get_url:
-            url: https://raw.githubusercontent.com/dsifford/yarn-completion/master/yarn-completion.bash
-            dest: ~/.local/share/bash-completion/completions/yarn
-            mode: "0755"
-        - name: Add composer command completion setting
-          ansible.builtin.lineinfile:
-            path: ~/.bashrc
-            line: eval "$(composer completion)"
+      ansible.builtin.import_tasks:
+        file: tasks/pip_package.yml
+    - name: Set git setting
+      ansible.builtin.import_tasks:
+        file: tasks/git.yml
+    - name: Set user environment setting
+      ansible.builtin.import_tasks:
+        file: tasks/environment.yml
+    - name: Set bash-completion setting
+      ansible.builtin.import_tasks:
+        file: tasks/completion.yml
+    - name: Find skeleton files
+      ansible.builtin.find:
+        paths:
+          - skel
+        excludes:
+          - .gitkeep
+        recurse: true
+      register: find_skeleton
+    - name: Set skeleton file variable
+      ansible.builtin.set_fact:
+        skeleton_files: "{{ find_skeleton.files | map(attribute='path') }}"
+    - name: Create directory
+      ansible.builtin.file:
+        path: "{{ base_dir }}/{{ dir_path }}"
+        state: directory
+        mode: "0755"
+      loop: "{{ skeleton_files | map('dirname') | map('regex_replace', '^skel/', '') | unique }}"
+      loop_control:
+        loop_var: dir_path
+        label: "{{ dir_path }}"
+    - name: Copy skeleton files
+      ansible.builtin.copy:
+        src: "{{ skeleton_file }}"
+        dest: "{{ base_dir }}/{{ skeleton_file | regex_replace('^skel/', '') }}"
+        mode: "0644"
+        remote_src: true
+      loop: "{{ skeleton_files }}"
+      loop_control:
+        loop_var: skeleton_file
+        label: "{{ skeleton_file | regex_replace('^skel/', '') }}"
