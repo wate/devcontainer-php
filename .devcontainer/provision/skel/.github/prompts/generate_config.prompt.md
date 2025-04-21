@@ -23,7 +23,7 @@
     - PHP Code Sniffer: phpcs.xml
     - PHPStan: phpstan.neon
     - Prettier: .prettierrc.yml
-    - YAML Lint: .yamllint.yaml
+    - YAML Lint: .yamllint.yml
     - Rollup: rollup.config.js
     - textlint: .textlintrc.yml
 - 設定ファイルは、各ツールのトップディレクトリに配置すること
