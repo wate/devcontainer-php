@@ -10,7 +10,7 @@ PHPプロジェクトの作成手順
 ### 0. 開発コンテナーの作成/起動します
 
 VSCodeを起動し、コマンドパレットを開き「開発コンテナー:コンテナーで再度開く」を選択し、
-開発コンテナを起動してください。
+開発コンテナーを起動してください。
 
 ### 1. 一時ディレクトリにPHPプロジェクトのスケルトンの作成します
 
@@ -244,14 +244,14 @@ direnv allow
 
 以下のURLをブラウザで開き、ローカル開発環境が正常に起動していることを確認してください。
 
-* PHPコンテナ：http://localhost:8080/
-* Mailpitコンテナ：http://localhost:8025/
-    * Mailpitはメール送信のテストに利用します。
+* PHPコンテナー：http://localhost:8080/
+* Mailpitコンテナー：http://localhost:8025/
+    * Mailpitはメール送信のテストに利用する
 
 CakePHPの各種プラグインのインストール手順
 --------------------------
 
-### [AdminLTEプラグイン](https://github.com/arodu/cakelte)
+### [CakeLte(AdminLTE)プラグイン](https://github.com/arodu/cakelte)
 
 #### 1. AdminLTEプラグインのインストール
 
@@ -324,10 +324,25 @@ patch -p1 <AppView.php.patch
 rm AppView.php.patch
 ```
 
-※手動で行う場合は以下のURLの「How to use」に記載されている手順に従って、
-`src/View/AppView.php`の修正を行ってください。
+※手動で行う場合は以下のURLの「How to use」に記載されている手順に従って、  
+`src/View/AppView.php`の修正する。
 
 https://github.com/arodu/cakelte?tab=readme-ov-file#how-to-use
+
+### [Localizedプラグイン](https://github.com/cakephp/localized)
+
+以下のコマンドを実行し、Localizedプラグインをインストールを行います。
+
+```sh
+## Localizedプラグインのインストール
+composer require cakephp/localized
+## Localizedプラグインのロード
+bin/cake plugin load Cake/Localized
+## ローカライズ用のリソースファイルをコピー
+export CAKE_LOCALIZED_LOCALE=ja_JP
+mkdir -p resources/locales/${CAKE_LOCALIZED_LOCALE}
+cp vendor/cakephp/localized/resources/locales/${CAKE_LOCALIZED_LOCALE}/* resources/locales/${CAKE_LOCALIZED_LOCALE}/
+```
 
 ### [IdeHelperプラグイン](https://github.com/dereuromark/cakephp-ide-helper)
 
