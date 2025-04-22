@@ -1,0 +1,81 @@
+---
+# yamllint disable rule:quoted-strings
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-json
+        exclude: ^.(vscode|devcontainer)
+      - id: check-yaml
+        exclude: mkdocs.yml$
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: check-case-conflict
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+        args:
+          - "--maxkb=1000"
+      - id: trailing-whitespace
+        args:
+          - --markdown-linebreak-ext=md
+      - id: detect-private-key
+      - id: no-commit-to-branch
+        args: [--branch, master, --branch, main, --branch, staging]
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.3
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.44.0
+    hooks:
+      - id: markdownlint-fix
+        exclude: ^docs/schema/.*$
+      - id: markdownlint
+        exclude: ^docs/schema/.*$
+  - repo: https://github.com/wate/pre-commit-mirrors-textlint
+    rev: v14.0.4-1
+    hooks:
+      - id: textlint-fix
+        exclude: ^docs/schema/.*$
+        args:
+          - --fix
+        additional_dependencies:
+          - textlint
+          - textlint-filter-rule-comments
+          - textlint-rule-preset-ja-technical-writing
+          - textlint-rule-preset-ja-spacing
+          - textlint-rule-ja-hiragana-fukushi
+          - textlint-rule-ja-hiragana-keishikimeishi
+          - textlint-rule-ja-hiragana-hojodoushi
+          - "@textlint-ja/textlint-rule-no-synonyms"
+          - sudachi-synonyms-dictionary
+          - textlint-rule-prh
+      - id: textlint
+        exclude: ^docs/schema/.*$
+        additional_dependencies:
+          - textlint
+          - textlint-filter-rule-comments
+          - textlint-rule-preset-ja-technical-writing
+          - textlint-rule-preset-ja-spacing
+          - textlint-rule-ja-hiragana-fukushi
+          - textlint-rule-ja-hiragana-keishikimeishi
+          - textlint-rule-ja-hiragana-hojodoushi
+          - "@textlint-ja/textlint-rule-no-synonyms"
+          - sudachi-synonyms-dictionary
+          - textlint-rule-prh
+  - repo: https://github.com/digitalpulp/pre-commit-php
+    rev: "1.4.0"
+    hooks:
+      - id: php-lint
+      - id: php-cs
+        # args: [--standard=phpcs.xml -p]
+      - id: php-cbf
+        # args: [--standard=phpcs.xml -p]
+      - id: php-stan
+        args: [--memory-limit=1G]
+        # exclude: ^tests/.*$
+      # - id: php-unit

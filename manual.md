@@ -221,6 +221,7 @@ cat <<EOS >> .gitignore
 
 ### dotenv ###
 .env
+
 EOS
 ```
 
@@ -265,6 +266,9 @@ bin/cake plugin load CakeLte
 bin/cake cakelte copy_files --all
 ### プラグインのアセットファイルのシンボリックリンクを作成
 bin/cake cakelte install
+### 作成したシンボリックリンクを無視するように.gitignoreに追加
+echo "### CakeLte ###" >>.gitignore
+echo "webroot/adminlte" >>.gitignore
 ```
 
 #### 2. AdminLTEプラグインの動作確認
@@ -274,6 +278,12 @@ bin/cake cakelte install
 http://localhost:8080/cake_lte/debug
 
 #### 3. デフォルトのテンプレートをAdminLTEプラグインに変更
+
+```sh
+cp vendor/arodu/cakelte/config/cakelte.php config/cakelte.php
+```
+
+#### 4. デフォルトのテンプレートをAdminLTEプラグインに変更
 
 以下のコマンドを実行し、デフォルトのテンプレートをAdminLTEプラグインに変更します。
 
