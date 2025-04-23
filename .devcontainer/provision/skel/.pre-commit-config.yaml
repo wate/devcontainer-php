@@ -40,7 +40,7 @@ repos:
     rev: v14.0.4-1
     hooks:
       - id: textlint-fix
-        exclude: ^docs/schema/.*$
+        exclude: ^(docs/schema|.github/prompts)/
         args:
           - --fix
         additional_dependencies:
@@ -55,7 +55,7 @@ repos:
           - sudachi-synonyms-dictionary
           - textlint-rule-prh
       - id: textlint
-        exclude: ^docs/schema/.*$
+        exclude: ^(docs/schema|.github/prompts)/
         additional_dependencies:
           - textlint
           - textlint-filter-rule-comments

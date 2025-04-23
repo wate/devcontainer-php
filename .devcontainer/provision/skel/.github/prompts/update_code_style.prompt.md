@@ -17,7 +17,9 @@
 実行してほしいこと
 -------------------------
 
-- Linterの設定ファイルの内容を元に、後述の「記載フォーマット」に従い作成する
+- Linterの設定ファイルの内容を元に、後述の「記載フォーマット」に従い記述する
+    - 各Linterの設定ファイルにどのようなものがあるかは「各種Linterの設定ファイル」を参照
+    - 記述する際に、まずEditorConfigやMarkdownlintの内容を確認し、記述する内容自体が規約に則るように記述する
 - Markdownの規約は以下の内容を盛り込むこと
     - 見出しのスタイル:
         - h1とh2はsetext記法(`=`または`-`で下線)
@@ -35,12 +37,72 @@
 禁止事項
 -------------------------
 
+- 存在しないLinterの設定ファイルの内容を記載してはならない
 - 設定ファイルの内容以外の独自ルールを追加してはならない
 - コーディング規約とは関係のない内容を含めてはならない
 - 実用性よりも厳格さを優先するようなルールを追加してはならない
 - プロジェクトの既存の作業や進捗を妨げるような極端なルールを作成してはならない
 - 特定のIDEやエディタにのみ依存するルールを含めてはならない
 - 過度に詳細で冗長なドキュメントにしてはならない
+
+各種Linterの設定ファイル
+-------------------------
+
+- EditorConfig: `.editorconfig`
+- Markdown:
+    - `.markdownlint.yml`
+    - `.markdownlint.yaml`
+    - `.markdownlint.json`
+- PHP:
+    - `phpcs.xml`
+    - `phpstan.neon`
+    - `phpstan.neon.dist`
+    - `phpstan.dist.neon`
+    - `.php-cs-fixer.dist.php`
+    - `.php-cs-fixer.php`
+- Prettier:
+    - `.prettierrc`
+    - `.prettierrc.js`
+    - `.prettierrc.json`
+    - `.prettierrc.yml`
+    - `.prettierrc.yaml`
+    - `.prettierrc.toml`
+- ESLint:
+    - `.eslint.config.js`
+    - `.eslintrc`
+    - `.eslintrc.js`
+    - `.eslintrc.yml`
+    - `.eslintrc.yaml`
+    - `.eslintrc.toml`
+    - `.eslintrc.json`
+    - `package.json`（`eslintConfig`セクション）
+- Stylelint:
+    - `stylelint.config.js`
+    - `.stylelintrc`
+    - `.stylelintrc.js`
+    - `.stylelintrc.yml`
+    - `.stylelintrc.yaml`
+    - `.stylelintrc.json`
+    - `package.json`（`stylelint`セクション）
+- YAML:
+    - `.yamllint`
+    - `.yamllint.yaml`
+    - `.yamllint.yml`
+- textlint:
+    - `.textlintrc`
+    - `.textlintrc.js`
+    - `.textlintrc.json`
+    - `.textlintrc.yml`
+    - `.textlintrc.yaml`
+- Ansible:
+    - `.ansible-lint`
+    - `.ansible-lint.yml`
+    - `.ansible-lint.yaml`
+    - `.config/ansible-lint.yml`
+    - `.config/ansible-lint.yaml`
+- Ruby:
+    - `.rubocop.yml`
+    - `.rubocop_todo.yml`
 
 記載フォーマット
 -------------------------
@@ -49,12 +111,12 @@
 コーディング規約
 =========================
 
-改行コードとインデントについてのルール
+改行コードとインデントのルール
 -------------------------
 
 {EditorConfigの内容を記載する}
 
-言語別コーディング規約
+言語別のコーディング規約
 -------------------------
 
 ### {言語名}
@@ -69,4 +131,6 @@
 出力先ファイル名および命名規則
 -------------------------
 
-- 成果物は`docs/code_style.md`に保存する
+- 成果物は以下のパスに保存すること
+    - ディレクトリ: `docs/`
+    - ファイル名: `code_style.md`
