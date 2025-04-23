@@ -49,7 +49,8 @@
 - `vendor/`: 依存パッケージを管理するためのディレクトリ
 - `webroot/index.php`: WebサーバーのルートURLにアクセスした際に実行されるファイル
 - 各言語のパッケージマネージャーの設定ファイル
-- Linterの設定ファイル
+- 各種Linterなどの設定ファイル
+    - 各種Linterの設定ファイルは「各種Linterの設定ファイル」を参照
 - デプロイ処理用の設定ファイル
     - `ansible.cfg`: Ansibleの設定ファイル
     - `deploy.yml`: Ansibleのデプロイ処理用Playbook
@@ -76,6 +77,65 @@
 ### 出力内容の順序について
 
 - `README.*`: 最初に出力すること。
+
+各種Linterの設定ファイル
+-------------------------
+
+- EditorConfig: `.editorconfig`
+- Markdown:
+    - `.markdownlint.yml`
+    - `.markdownlint.yaml`
+    - `.markdownlint.json`
+- PHP:
+    - `phpcs.xml`
+    - `phpstan.neon`
+    - `phpstan.neon.dist`
+    - `phpstan.dist.neon`
+    - `.php-cs-fixer.dist.php`
+    - `.php-cs-fixer.php`
+- Prettier:
+    - `.prettierrc`
+    - `.prettierrc.js`
+    - `.prettierrc.json`
+    - `.prettierrc.yml`
+    - `.prettierrc.yaml`
+    - `.prettierrc.toml`
+- ESLint:
+    - `.eslint.config.js`
+    - `.eslintrc`
+    - `.eslintrc.js`
+    - `.eslintrc.yml`
+    - `.eslintrc.yaml`
+    - `.eslintrc.toml`
+    - `.eslintrc.json`
+    - `package.json`（`eslintConfig`セクション）
+- Stylelint:
+    - `stylelint.config.js`
+    - `.stylelintrc`
+    - `.stylelintrc.js`
+    - `.stylelintrc.yml`
+    - `.stylelintrc.yaml`
+    - `.stylelintrc.json`
+    - `package.json`（`stylelint`セクション）
+- YAML:
+    - `.yamllint`
+    - `.yamllint.yaml`
+    - `.yamllint.yml`
+- textlint:
+    - `.textlintrc`
+    - `.textlintrc.js`
+    - `.textlintrc.json`
+    - `.textlintrc.yml`
+    - `.textlintrc.yaml`
+- Ansible:
+    - `.ansible-lint`
+    - `.ansible-lint.yml`
+    - `.ansible-lint.yaml`
+    - `.config/ansible-lint.yml`
+    - `.config/ansible-lint.yaml`
+- Ruby:
+    - `.rubocop.yml`
+    - `.rubocop_todo.yml`
 
 記載フォーマット
 -------------------------
