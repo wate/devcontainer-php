@@ -1,0 +1,10 @@
+---
+##------------
+## 略語
+##------------
+version: 1
+rules:
+  - expected: スプレッドシート
+    pattern: スプシ
+  - expected: パワーポイント
+    pattern: パワポ

@@ -1,0 +1,94 @@
+---
+##------------
+## 名前/固有名詞
+##------------
+version: 1
+rules:
+  ### OS
+  - expected: Linux
+  - expected: Debian
+  - expected: Ubuntu
+  - expected: AlmaLinux
+    pattern: /Alma ?Linux/i
+  - expected: Rocky Linux
+    pattern: /Rocky ?Linux/i
+  - expected: Windows
+  - expected: Mac
+    options:
+      wordBoundary: true
+  - expected: Android
+  - expected: iOS
+    options:
+      wordBoundary: true
+  ### Language
+  - expected: PHP
+    options:
+      wordBoundary: true
+  - expected: Node.js
+  - expected: Node.js
+    patterns: node
+    options:
+      wordBoundary: true
+  - expected: Python
+  - expected: Ruby
+  - expected: JavaScript
+  - expected: TypeScript
+  - expected: Rust
+  - expected: Go
+    pattern: /Golang/i
+  - expected: HTML
+  - expected: CSS
+  - expected: Sass
+  ### Format
+  - expected: Markdown
+    options:
+      wordBoundary: true
+  - expected: reStructuredText
+    options:
+      wordBoundary: true
+  - expected: AsciiDoc
+    options:
+      wordBoundary: true
+  - expected: YAML
+    options:
+      wordBoundary: true
+  - expected: JSON
+    options:
+      wordBoundary: true
+  - expected: TOML
+    options:
+      wordBoundary: true
+  ### Framework name / Library name
+  - expected: jQuery
+  - expected: jQuery UI
+  - expected: Laravel
+  - expected: CakePHP
+  - expected: Symfony
+    pattern: /Sym(p|f)ony/i
+  - expected: Rails
+  ### Tool name
+  - expected: Ansible
+  - expected: Terraform
+  - expected: Packer
+  ### Service name / Application name
+  - expected: WordPress
+  - expected: Redmine
+  - expected: Backlog
+  - expected: Jira
+  - expected: Confluence
+  ## Browser
+  - expected: Firefox
+  - expected: Chrome
+  - expected: Edge
+  ## Editor / IDE
+  - expected: VSCode
+  - expected: Vim
+  - expected: Emacs
+  - expected: PyCharm
+  - expected: WebStorm
+  - expected: PhpStorm
+  - expected: RubyMine
+  - expected: IntelliJ IDEA
+    pattern: /IntelliJ(?! IDEA)/i
+  - expected: NetBeans
+  - expected: Eclipse
