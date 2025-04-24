@@ -45,3 +45,33 @@ Copilotトレーニング
 * ツール名: Redmine
 * プロジェクト管理URL: http://redmine.example.com/projects/copilot-training
 * プロジェクトコード: copilot-training
+
+### コミニュケーション
+
+通常のコミュニケーションはSlackを利用します。
+
+* ツール名: Slack
+* チャンネル名: #copilot-training
+* チャンネルURL: http://slack.example.com/copilot-training
+* チャンネルコード: copilot-training
+* チャンネルID: `C12345678`
+
+### ドキュメント検索
+
+ドキュメント検索にはMeilisearchを利用します。
+
+以下の情報を元にドキュメント検索を行ってください。
+
+* 検索エンジン: Meilisearch
+* 検索エンジンURL: http://meilisearch.example.com/
+* 検索エンジンAPIキー: `secret_key`
+
+検索するドキュメントの内容に応じて、インデックスを選択してください。
+
+#### インデックス名
+
+* ユーザーガイド: `guide`
+* 運用マニュアル: `manual`
+* 業務マニュアル： `operation`
+* 開発ドキュメント： `dev`
+* APIドキュメント: `api`
