@@ -1,9 +1,11 @@
 antfu
+autoloader
 autoremove
 axllent
 behaviour
 CAKECORE
 CAKEMODEL
+dbml
 dearmor
 devcontainers
 dotglob
@@ -19,6 +21,7 @@ ipaexfont
 josegonzalez
 libfreetype
 libicu
+libimage
 libjpeg
 libpango
 libpangoft
@@ -34,6 +37,7 @@ shopt
 silversearcher
 skel
 Taskfile
+textlintrc
 venvs
 webroot
 yarnpkg
