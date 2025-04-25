@@ -18,7 +18,7 @@
 
 - 後述の「記載フォーマット」に従い出力する
 - ディレクトリの末尾には`/`を付ける
-- ディレクトリには役割や説明を以下のルールで付記すること:
+- ディレクトリには役割や説明を以下のルールで付記すること
     - 日本語で記載
     - ディレクトリ名の後に`#`と半角スペース1つを挟んで記載
     - 階層に応じて4スペースのインデントを付け、各階層で揃える
@@ -32,7 +32,7 @@
 
 - ディレクトリの昇順、次にファイルの昇順で出力する
 - トップディレクトリの設定ファイルは最後に出力する
-- 「例外事項」の「出力順序について」に明示されているものは、この順序に従わない
+- 後述の「例外事項」の「出力順序について」に明示されているものは、この順序に従わない
 
 禁止事項
 -------------------------
@@ -49,8 +49,8 @@
 - `vendor/`: 依存パッケージを管理するためのディレクトリ
 - `webroot/index.php`: WebサーバーのルートURLにアクセスした際に実行されるファイル
 - 各言語のパッケージマネージャーの設定ファイル
-- 各種Linterなどの設定ファイル
-    - 各種Linterの設定ファイルは「各種Linterの設定ファイル」を参照
+- 各種Linterの設定ファイル
+    - 設定ファイルにどのようなものがあるかは、後述の「各種Linterの設定ファイル」を参照すること
 - デプロイ処理用の設定ファイル
     - `ansible.cfg`: Ansibleの設定ファイル
     - `deploy.yml`: Ansibleのデプロイ処理用Playbook
@@ -81,61 +81,65 @@
 各種Linterの設定ファイル
 -------------------------
 
-- EditorConfig: `.editorconfig`
-- Markdown:
-    - `.markdownlint.yml`
-    - `.markdownlint.yaml`
-    - `.markdownlint.json`
-- PHP:
-    - `phpcs.xml`
-    - `phpstan.neon`
-    - `phpstan.neon.dist`
-    - `phpstan.dist.neon`
-    - `.php-cs-fixer.dist.php`
-    - `.php-cs-fixer.php`
-- Prettier:
-    - `.prettierrc`
-    - `.prettierrc.js`
-    - `.prettierrc.json`
-    - `.prettierrc.yml`
-    - `.prettierrc.yaml`
-    - `.prettierrc.toml`
-- ESLint:
-    - `.eslint.config.js`
-    - `.eslintrc`
-    - `.eslintrc.js`
-    - `.eslintrc.yml`
-    - `.eslintrc.yaml`
-    - `.eslintrc.toml`
-    - `.eslintrc.json`
-    - `package.json`（`eslintConfig`セクション）
-- Stylelint:
-    - `stylelint.config.js`
-    - `.stylelintrc`
-    - `.stylelintrc.js`
-    - `.stylelintrc.yml`
-    - `.stylelintrc.yaml`
-    - `.stylelintrc.json`
-    - `package.json`（`stylelint`セクション）
-- YAML:
-    - `.yamllint`
-    - `.yamllint.yaml`
-    - `.yamllint.yml`
-- textlint:
-    - `.textlintrc`
-    - `.textlintrc.js`
-    - `.textlintrc.json`
-    - `.textlintrc.yml`
-    - `.textlintrc.yaml`
-- Ansible:
-    - `.ansible-lint`
-    - `.ansible-lint.yml`
-    - `.ansible-lint.yaml`
-    - `.config/ansible-lint.yml`
-    - `.config/ansible-lint.yaml`
-- Ruby:
-    - `.rubocop.yml`
-    - `.rubocop_todo.yml`
+### EditorConfig
+
+- `.editorconfig`
+
+### Markdownlint
+
+- `.markdownlint.yml`
+- `.markdownlint.yaml`
+- `.markdownlint.json`
+
+### PHP
+
+- `phpcs.xml`
+- `phpstan.neon`
+- `phpstan.neon.dist`
+- `phpstan.dist.neon`
+- `.php-cs-fixer.dist.php`
+- `.php-cs-fixer.php`
+
+### Prettier
+
+- `.prettierrc`
+- `.prettierrc.*`
+
+### ESLint
+
+- `.eslint.config.js`
+- `.eslintrc`
+- `.eslintrc.*`
+- `package.json`（`eslintConfig`セクション）
+
+### Stylelint
+
+- `stylelint.config.js`
+- `.stylelintrc`
+- `.stylelintrc.*`
+- `package.json`（`stylelint`セクション）
+
+### yamllint
+
+- `.yamllint`
+- `.yamllint.yml`
+- `.yamllint.yaml`
+
+### textlint
+
+- `.textlintrc`
+- `.textlintrc.*`
+
+### ansible-lint
+
+- `.ansible-lint`
+- `.ansible-lint.yml`
+- `.ansible-lint.yaml`
+
+### Ruby
+
+- `.rubocop.yml`
+- `.rubocop_todo.yml`
 
 記載フォーマット
 -------------------------

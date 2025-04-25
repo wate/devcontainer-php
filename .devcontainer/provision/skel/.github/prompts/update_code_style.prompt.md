@@ -1,7 +1,7 @@
 「コーディング規約」ドキュメントの更新
 =========================
 
-役割/ロール
+役割
 -------------------------
 
 あなたはソフトウェア開発におけるコーディング規約とスタイルガイドの専門家です。
@@ -18,7 +18,7 @@
 -------------------------
 
 - Linterの設定ファイルの内容を元に、後述の「記載フォーマット」に従い記述する
-    - 各Linterの設定ファイルにどのようなものがあるかは「各種Linterの設定ファイル」を参照
+    - 設定ファイルにどのようなものがあるかは、後述の「各種Linterの設定ファイル」を参照すること
     - 記述する際に、まずEditorConfigやMarkdownlintの内容を確認し、記述する内容自体が規約に則るように記述する
 - Markdownの規約は以下の内容を盛り込むこと
     - 見出しのスタイル:
@@ -48,61 +48,65 @@
 各種Linterの設定ファイル
 -------------------------
 
-- EditorConfig: `.editorconfig`
-- Markdown:
-    - `.markdownlint.yml`
-    - `.markdownlint.yaml`
-    - `.markdownlint.json`
-- PHP:
-    - `phpcs.xml`
-    - `phpstan.neon`
-    - `phpstan.neon.dist`
-    - `phpstan.dist.neon`
-    - `.php-cs-fixer.dist.php`
-    - `.php-cs-fixer.php`
-- Prettier:
-    - `.prettierrc`
-    - `.prettierrc.js`
-    - `.prettierrc.json`
-    - `.prettierrc.yml`
-    - `.prettierrc.yaml`
-    - `.prettierrc.toml`
-- ESLint:
-    - `.eslint.config.js`
-    - `.eslintrc`
-    - `.eslintrc.js`
-    - `.eslintrc.yml`
-    - `.eslintrc.yaml`
-    - `.eslintrc.toml`
-    - `.eslintrc.json`
-    - `package.json`（`eslintConfig`セクション）
-- Stylelint:
-    - `stylelint.config.js`
-    - `.stylelintrc`
-    - `.stylelintrc.js`
-    - `.stylelintrc.yml`
-    - `.stylelintrc.yaml`
-    - `.stylelintrc.json`
-    - `package.json`（`stylelint`セクション）
-- YAML:
-    - `.yamllint`
-    - `.yamllint.yaml`
-    - `.yamllint.yml`
-- textlint:
-    - `.textlintrc`
-    - `.textlintrc.js`
-    - `.textlintrc.json`
-    - `.textlintrc.yml`
-    - `.textlintrc.yaml`
-- Ansible:
-    - `.ansible-lint`
-    - `.ansible-lint.yml`
-    - `.ansible-lint.yaml`
-    - `.config/ansible-lint.yml`
-    - `.config/ansible-lint.yaml`
-- Ruby:
-    - `.rubocop.yml`
-    - `.rubocop_todo.yml`
+### EditorConfig
+
+- `.editorconfig`
+
+### Markdownlint
+
+- `.markdownlint.yml`
+- `.markdownlint.yaml`
+- `.markdownlint.json`
+
+### PHP
+
+- `phpcs.xml`
+- `phpstan.neon`
+- `phpstan.neon.dist`
+- `phpstan.dist.neon`
+- `.php-cs-fixer.dist.php`
+- `.php-cs-fixer.php`
+
+### Prettier
+
+- `.prettierrc`
+- `.prettierrc.*`
+
+### ESLint
+
+- `.eslint.config.js`
+- `.eslintrc`
+- `.eslintrc.*`
+- `package.json`（`eslintConfig`セクション）
+
+### Stylelint
+
+- `stylelint.config.js`
+- `.stylelintrc`
+- `.stylelintrc.*`
+- `package.json`（`stylelint`セクション）
+
+### yamllint
+
+- `.yamllint`
+- `.yamllint.yml`
+- `.yamllint.yaml`
+
+### textlint
+
+- `.textlintrc`
+- `.textlintrc.*`
+
+### ansible-lint
+
+- `.ansible-lint`
+- `.ansible-lint.yml`
+- `.ansible-lint.yaml`
+
+### Ruby
+
+- `.rubocop.yml`
+- `.rubocop_todo.yml`
 
 記載フォーマット
 -------------------------

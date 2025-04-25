@@ -62,6 +62,7 @@ Playbookで利用されている主な変数は以下のとおりです。
 
 * `app_repo`: アプリケーションのGitリポジトリURL
 * `app_deploy_path`: デプロイ先のパス
+* `rsync_exclude_opts`: rsync使用時の除外設定（.gitや.envなどのファイル）
 * `app_repo_branch`: デプロイするブランチ名（環境ごとに異なる）
 * `app_env`: アプリケーション実行環境（development、staging、production）
 
@@ -73,11 +74,21 @@ Playbookで利用されている主な変数は以下のとおりです。
 * `create_asset_symlinks`: アセットのシンボリックリンクを作成するかどうか（デフォルトはfalse）
 * `rebuild_orm_cache`: ORMキャッシュを再構築するかどうか（デフォルトはfalse）
 
+### 接続設定に関する変数（環境ごとに設定可能）
+
+inventory.ymlの各環境のhostsセクション内でホスト固有の接続設定を行うことができます。
+
+* `ansible_host`: ホスト名またはIPアドレス
+* `ansible_port`: SSHポート番号
+* `ansible_user`: SSH接続ユーザー
+* `ansible_password`: SSH接続パスワード
+* `ansible_ssh_private_key_file`: SSH秘密鍵のパス
+
 デプロイ手順の詳細
 -------------------------
 
-以下の内容はPlaybookに記載されている内容を元に、手動で対応を行う場合の手順を記載しています、  
-何らかの理由でAnsibleを使用できない場合に参考にしてください。
+以下の内容はPlaybookの内容を手動で対応する場合の手順の記載しています、  
+何らかの理由でAnsibleを使用できない場合の参考にしてください。
 
 ### 1. ソースコードのチェックアウト
 
@@ -111,7 +122,6 @@ mkdir -p tmp/cache/persistent
 mkdir -p tmp/cache/views
 mkdir -p tmp/sessions
 mkdir -p tmp/tests
-mkdir -p tmp/debug_kit
 mkdir -p logs
 chmod -R 0775 tmp logs
 ```
@@ -119,6 +129,11 @@ chmod -R 0775 tmp logs
 #### 2.4 セキュリティソルトの設定
 
 設定ファイル（config/app_local.PHP）内のセキュリティソルト設定を更新します。
+
+```sh
+# 以下のコマンドはLinuxまたはmacOSの場合の例です
+sed -i 's/'\''SecuritySalt'\''.*$/'\''SecuritySalt'\'' => env('\''SECURITY_SALT'\'', '\''YOUR_SECURITY_SALT'\''),/' config/app_local.php
+```
 
 #### 2.5 データベースマイグレーションの実行
 
@@ -204,6 +219,24 @@ bin/cake orm_cache build
 bin/cake migrations migrate -v
 ```
 
+### ロールバックが必要な場合
+
+Ansibleプレイブックには明示的なロールバック機能は実装されていないため、  
+以下の手順の則り手動でロールバックを行います。
+
+1. 過去のバージョンにGitのチェックアウトを戻す
+
+   ```sh
+   cd {app_deploy_path}
+   git checkout {previous_commit_or_tag}
+   ```
+
+2. 必要に応じて、データベースのロールバックを行う
+
+   ```sh
+   bin/cake migrations rollback
+   ```
+
 注意点と推奨事項
 -------------------------
 
@@ -224,3 +257,10 @@ bin/cake migrations migrate -v
 * `SLACK_TOKEN`: Slackの認証トークン
 * `SLACK_CHANNEL`: 通知を送信するSlackチャンネル（オプション）
 * `SLACK_USERNAME`: 通知を送信する際のユーザー名（オプション）
+
+成功時には緑色（#00ff00）、失敗時には赤色（#ff0000）で通知が送信されます。
+
+### エラーハンドリング
+
+プレイブックには `rescue` セクションが含まれており、デプロイ処理中にエラーが発生した場合も通知が行われるように設計されています。  
+これにより、デプロイの失敗をすぐに検知し、対応できます。

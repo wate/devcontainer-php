@@ -7,6 +7,7 @@
   vars:
     base_dir: "{{ ansible_facts.env.PWD | dirname | dirname }}"
     install_tools:
+      - eza
       - osv-scanner
       - delta
       - lazygit
@@ -17,15 +18,22 @@
       - gitleaks
       - github-cli
       - fnt
+      ### 作図関連
       - d2
-      # - graphviz
-      # - plantuml
+      - graphviz
+      - plantuml
       - mermaid-cli
+      - drawio
+      ### ファイル変換
+      - pandoc
+      ### pdf関連
+      - poppler-utils
+      - diff-pdf
+      ### node.js関連
       - zx
       - ni
+      ### PHP関連
       - phpDocumentor
-    github_cli_extensions:
-      - github/gh-copilot
   roles:
     - role: tools
       become: true
