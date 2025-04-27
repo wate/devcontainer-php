@@ -1,0 +1,48 @@
+---
+## ----------
+## Markitdown
+## @see https://github.com/microsoft/markitdown
+## ----------
+## Variable
+# markitdown_install: false
+# markitdown_options:
+#   ### Installs dependencies for PowerPoint files
+#   - pptx
+#   ### Installs dependencies for Word files
+#   - docx
+#   ### Installs dependencies for Excel files
+#   - xlsx
+#   ###  Installs dependencies for older Excel files
+#   # - xls
+#   ### Installs dependencies for PDF files
+#   - pdf
+#   ### Installs dependencies for Outlook messages
+#   # - outlook
+#   ### Installs dependencies for Azure Document Intelligence
+#   # - az-doc-intel
+#   ### Installs dependencies for audio transcription of wav and mp3 files
+#   # - audio-transcription
+#   ### Installs dependencies for fetching YouTube video transcription
+#   # - youtube-transcription
+- name: Install markitdown
+  when: markitdown_install | default(false)
+  block:
+    - name: Install dependency packages
+      ansible.builtin.apt:
+        name: libimage-exiftool-perl
+      become: true
+    - name: Install ffmpeg
+      ansible.builtin.apt:
+        name: ffmpeg
+      become: true
+      when: >
+        'audio-transcription' in markitdown_options
+        or
+        'youtube-transcription' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update markitdown
+      community.general.pipx:
+        name: markitdown
+        install_deps: true
+        state: latest

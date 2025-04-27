@@ -17,7 +17,7 @@
 実行してほしいこと
 -------------------------
 
-- 提供された業務プロセスの説明に基づいて、Draw.io形式のXML形式でスイムレーンを含む業務フロー図を作成する
+- 提供された業務プロセスの説明に基づいて、Draw.io XML形式でスイムレーンを含む業務フロー図を作成する
 - 作成する業務フロー図は以下の要素を明確に表現すること
     - プロセスの開始点と終了点
     - 各ステップやアクション（処理）
@@ -34,7 +34,7 @@
     - データ：平行四辺形
     - コネクタ：矢印
 - スイムレーンの実装方法：
-    - 横方向または縦方向のスイムレーンを適切に選択して表現する
+    - 横方向のスイムレーンで作成する
     - 各スイムレーンには担当者や部門の名称を明記する
     - スイムレーン間の遷移は明確に矢印で表現する
     - スイムレーン内のプロセスは左上から右下に流れるようにする
@@ -47,14 +47,12 @@
 - 無理やり詰め込むのではなく、余白を持たせて見やすくする
 - 各部門の作業はそれぞれのスイムレーンに分けて記載する
     - レーンに収まらない場合はレーンのサイズを拡大する
-- デフォルトのページサイズは`幅: 1654`、`高さ: 1169`とする
-    - ただし、`幅: 1169`、`高さ: 827`に収まる場合は`幅: 1169`、`高さ: 827`とする
+- ページサイズは`pageWidth="1654"`、`pageHeight"1169"`とする
 - 各要素のサイズや位置は適切に調整し、全体のバランスを考慮する
 
 禁止事項
 -------------------------
 
-- ディレクトリ作成コマンドは利用しないこと
 - 識別子（ID）の重複使用は禁止する
 - Draw.io以外のツールに特化したXML形式を使用しないこと
 - 業務プロセスの本質を歪めるような簡略化をしないこと
@@ -72,7 +70,7 @@
 ```xml
 <mxfile host="app.diagrams.net" modified="YYYYMMDDTHHmmssZ" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="XXXXXXXXXXXX" version="XX.X.X" type="device">
   <diagram id="XXXX-XXXX-XXXX-XXXX" name="業務フロー図">
-    <mxGraphModel dx="XXXX" dy="XXXX" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="XXXX" dy="XXXX" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -105,7 +103,9 @@
 出力先ファイル名および命名規則
 -------------------------
 
-- 成果物は以下のパスに保存すること
-    - ディレクトリ: `docs/workflow/`
+- 成果物は以下のパスに保存する
+    - ディレクトリ: `docs/workflow`
     - ファイル名: `{業務名(英語)}.drawio`
-        - 例: `docs/workflows/order_processing.drawio`
+        - 例: `docs/workflows/order_management.drawio`
+- ディレクトリが存在するか確認する
+    - ディレクトリが存在しない場合は作成する
