@@ -5,6 +5,7 @@ axllent
 behaviour
 CAKECORE
 CAKEMODEL
+dagre
 dbml
 dearmor
 devcontainers
@@ -38,6 +39,7 @@ silversearcher
 skel
 Taskfile
 textlintrc
+usecase
 venvs
 webroot
 yarnpkg
