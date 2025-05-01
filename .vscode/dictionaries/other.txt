@@ -33,6 +33,8 @@ mysqld
 nodesource
 nodistro
 noninteractive
+Pipfile
+pyproject
 Repolib
 shopt
 silversearcher

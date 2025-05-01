@@ -284,4 +284,3 @@ dashboard -> end: "ログアウト" {
 
 - [D2言語公式ドキュメント](https://d2lang.com/)
 - [D2言語チュートリアル](https://d2lang.com/tour/)
-- [画面遷移図の基本](https://uxdesign.cc/designing-user-flows-99393dc3c8c8)
