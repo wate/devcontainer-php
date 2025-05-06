@@ -24,6 +24,7 @@ markitdown
 meilisearch
 mkdocs
 mycli
+openai
 pandoc
 phpdocumentor
 phpstorm

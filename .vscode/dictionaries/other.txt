@@ -9,6 +9,7 @@ dagre
 dbml
 dearmor
 devcontainers
+documentintelligence
 dotglob
 enmod
 envrc
@@ -28,12 +29,17 @@ libpango
 libpangoft
 libzip
 localectl
+lxml
 myclirc
 mysqld
 nodesource
 nodistro
 noninteractive
+olefile
+openpyxl
+pdfminer
 Pipfile
+pydub
 pyproject
 Repolib
 shopt
@@ -44,4 +50,5 @@ textlintrc
 usecase
 venvs
 webroot
+xlrd
 yarnpkg

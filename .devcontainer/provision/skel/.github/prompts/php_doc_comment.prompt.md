@@ -54,33 +54,6 @@
 - アノテーションを追加する過程で、コードの問題点（型の不一致、未使用変数など）を発見した場合は指摘し、修正案を提示する
 - より良いコード構造になるような提案があれば、それも含めて説明する
 
-### 更新対象
-
-- 更新対象のファイルが指定されていた場合は、指定されたファイルのみを対象とする
-    - それ以外のファイルを勝手に更新してはいけない
-- 更新対象が指定されていない場合は、以下のディレクトリ内にあるファイルを対象とする
-    - `src/Command`
-    - `src/Controller`
-    - `src/Controller/Component`
-    - `src/Model/Table`
-    - `src/Model/Behavior`
-    - `src/Model/Entity`
-    - `src/Form`
-    - `src/View`
-    - `src/View/Cell`
-    - `src/View/Helper`
-
-### 除外ファイル
-
-以下で指定されたファイルは除外する
-
-- `src/Config/bootstrap.php`
-- `src/Controller/ErrorController.php`
-- `src/Controller/AppController.php`
-- `src/Controller/PagesController.php`
-- `src/Console/Installer.php`
-- `vendor/*`
-
 禁止事項
 -------------------------
 

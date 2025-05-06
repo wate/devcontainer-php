@@ -5,7 +5,11 @@
   connection: local
   become: false
   vars:
+    ## Base Directory
+    ## -------------
     base_dir: "{{ ansible_facts.env.PWD | dirname | dirname }}"
+    ## Development Tools
+    ## -------------
     install_tools:
       - eza
       - osv-scanner
@@ -34,6 +38,28 @@
       - ni
       ### PHP関連
       - phpDocumentor
+    ## Markitdown
+    ## -------------
+    markitdown_install: false
+    markitdown_options:
+      ### Installs dependencies for PowerPoint files
+      - pptx
+      ### Installs dependencies for Word files
+      - docx
+      ### Installs dependencies for Excel files
+      - xlsx
+      ###  Installs dependencies for older Excel files
+      # - xls
+      ### Installs dependencies for PDF files
+      - pdf
+      ### Installs dependencies for Outlook messages
+      # - outlook
+      ### Installs dependencies for Azure Document Intelligence
+      # - az-doc-intel
+      ### Installs dependencies for audio transcription of wav and mp3 files
+      # - audio-transcription
+      ### Installs dependencies for fetching YouTube video transcription
+      # - youtube-transcription
   roles:
     - role: tools
       become: true

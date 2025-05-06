@@ -27,24 +27,24 @@
         "sql-formatter.uppercase": true
       },
       "extensions": [
-        "mikestead.dotenv",
         "EditorConfig.EditorConfig",
         "yzhang.markdown-all-in-one",
         "DavidAnson.vscode-markdownlint",
         "bierner.github-markdown-preview",
         "shd101wyy.markdown-preview-enhanced",
-        "Terrastruct.d2",
         "xdebug.php-debug",
         "bmewburn.vscode-intelephense-client",
         "esbenp.prettier-vscode",
-        "adpyke.vscode-sql-formatter",
         "vscode-icons-team.vscode-icons",
+        "mikestead.dotenv",
         "oderwat.indent-rainbow",
         "mechatroner.rainbow-csv",
+        "Terrastruct.d2",
         "hediet.vscode-drawio",
         "redhat.vscode-yaml",
         "redhat.ansible",
         "streetsidesoftware.code-spell-checker",
+        "adpyke.vscode-sql-formatter",
         "dbcode.dbcode"
       ]
     }

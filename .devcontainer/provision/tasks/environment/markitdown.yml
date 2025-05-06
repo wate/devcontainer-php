@@ -3,27 +3,6 @@
 ## Markitdown
 ## @see https://github.com/microsoft/markitdown
 ## ----------
-## Variable
-# markitdown_install: false
-# markitdown_options:
-#   ### Installs dependencies for PowerPoint files
-#   - pptx
-#   ### Installs dependencies for Word files
-#   - docx
-#   ### Installs dependencies for Excel files
-#   - xlsx
-#   ###  Installs dependencies for older Excel files
-#   # - xls
-#   ### Installs dependencies for PDF files
-#   - pdf
-#   ### Installs dependencies for Outlook messages
-#   # - outlook
-#   ### Installs dependencies for Azure Document Intelligence
-#   # - az-doc-intel
-#   ### Installs dependencies for audio transcription of wav and mp3 files
-#   # - audio-transcription
-#   ### Installs dependencies for fetching YouTube video transcription
-#   # - youtube-transcription
 - name: Install markitdown
   when: markitdown_install | default(false)
   block:
@@ -44,5 +23,101 @@
     - name: Install/update markitdown
       community.general.pipx:
         name: markitdown
-        install_deps: true
         state: latest
+        install_deps: true
+        include_injected: true
+    - name: Install/update optional dependencies(pptx)
+      community.general.pipx:
+        state: inject
+        name: markitdown
+        inject_packages:
+          - python-pptx
+      when: >
+        'pptx' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update optional dependencies(docx)
+      community.general.pipx:
+        state: inject
+        name: markitdown
+        inject_packages:
+          - mammoth
+          - lxml
+      when: >
+        'docx' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update optional dependencies(xlsx)
+      community.general.pipx:
+        state: inject
+        name: markitdown
+        inject_packages:
+          - pandas
+          - openpyxl
+      when: >
+        'xlsx' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update optional dependencies(xls)
+      community.general.pipx:
+        state: inject
+        name: markitdown
+        inject_packages:
+          - pandas
+          - xlrd
+      when: >
+        'xls' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update optional dependencies(pdf)
+      community.general.pipx:
+        state: inject
+        name: markitdown
+        inject_packages:
+          - pdfminer.six
+      when: >
+        'pdf' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update optional dependencies(outlook)
+      community.general.pipx:
+        state: inject
+        name: markitdown
+        inject_packages:
+          - olefile
+      when: >
+        'outlook' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update optional dependencies(audio-transcription)
+      community.general.pipx:
+        state: inject
+        name: markitdown
+        inject_packages:
+          - pydub
+          - SpeechRecognition
+      when: >
+        'audio-transcription' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update optional dependencies(youtube-transcription)
+      community.general.pipx:
+        state: inject
+        name: markitdown
+        inject_packages:
+          - youtube-transcript-api
+      when: >
+        'youtube-transcription' in markitdown_options
+        or
+        'all' in markitdown_options
+    - name: Install/update optional dependencies(az-doc-intel)
+      community.general.pipx:
+        name: markitdown
+        inject_packages:
+          - azure-ai-documentintelligence
+          - azure-identity
+        state: latest
+      when: >
+        'az-doc-intel' in markitdown_options
+        or
+        'all' in markitdown_options
