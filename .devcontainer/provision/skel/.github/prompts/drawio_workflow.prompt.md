@@ -68,7 +68,7 @@
 -------------------------
 
 ```xml
-<mxfile host="app.diagrams.net" modified="YYYYMMDDTHHmmssZ" agent="{ユーザーエージェント文字列}" etag="XXXXXXXXXXXX" version="XX.X.X" type="device">
+<mxfile host="app.diagrams.net" modified="YYYYMMDDTHHmmssZ" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="XXXXXXXXXXXX" version="XX.X.X" type="device">
   <diagram id="XXXX-XXXX-XXXX-XXXX" name="業務フロー図">
     <mxGraphModel dx="XXXX" dy="XXXX" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
