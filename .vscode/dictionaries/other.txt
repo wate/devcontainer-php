@@ -17,6 +17,7 @@ freetype
 getmeili
 gierens
 gitprompt
+imagick
 initdb
 inputrc
 ipaexfont
@@ -25,6 +26,7 @@ libfreetype
 libicu
 libimage
 libjpeg
+libmagickwand
 libpango
 libpangoft
 libzip

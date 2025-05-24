@@ -15,6 +15,8 @@ services:
       - ./php/z-custom.ini:/usr/local/etc/php/conf.d/z-custom.ini
     # command: sleep infinity
     command: /usr/local/bin/apache2-foreground
+    ports:
+      - "8080:8080"
     depends_on:
       - db
   db:
