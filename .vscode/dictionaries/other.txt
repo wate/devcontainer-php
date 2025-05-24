@@ -3,6 +3,7 @@ autoloader
 autoremove
 axllent
 behaviour
+bizud
 CAKECORE
 CAKEMODEL
 dagre
@@ -32,6 +33,8 @@ libpangoft
 libzip
 localectl
 lxml
+mincho
+morisawa
 myclirc
 mysqld
 nodesource
