@@ -1,5 +1,6 @@
 ---
-mode: 'agent'
+mode: agent
+model: Claude Sonnet 4
 ---
 「コーディング規約」ドキュメントの更新
 =========================

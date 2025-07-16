@@ -1,5 +1,6 @@
 ---
-mode: 'agent'
+mode: agent
+model: Claude Sonnet 4
 ---
 「ディレクトリ構造」ドキュメントの更新
 =========================

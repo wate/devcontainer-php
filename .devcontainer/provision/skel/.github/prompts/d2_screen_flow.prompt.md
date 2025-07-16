@@ -1,5 +1,6 @@
 ---
-mode: 'agent'
+mode: agent
+model: Claude Sonnet 4
 ---
 画面遷移図をD2言語で生成
 =========================

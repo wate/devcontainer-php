@@ -84,6 +84,18 @@ if [ -f package.json ]; then
   ni
 fi
 
+## -------------
+## 各種コマンドラインツールをインストール
+## ----
+## uv: https://docs.astral.sh/uv/
+## mkdocs: https://squidfunk.github.io/mkdocs-material/
+## mycli: https://www.mycli.net/
+## pre-commit: https://pre-commit.com/
+## Ansible: https://docs.ansible.com/
+## -------------
+if [ ! -e "${HOME}/.local/pipx/venvs/uv" ]; then
+  pipx install uv
+fi
 if [ ! -e ~/.local/pipx/venvs/mkdocs ]; then
   pipx install mkdocs --include-deps
   pipx inject mkdocs mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-glightbox

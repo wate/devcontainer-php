@@ -1,5 +1,6 @@
 ---
-mode: 'agent'
+mode: agent
+model: Claude Sonnet 4
 ---
 「デプロイ手順書」ドキュメントの更新
 =========================

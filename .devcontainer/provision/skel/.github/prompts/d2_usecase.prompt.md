@@ -1,5 +1,6 @@
 ---
-mode: 'agent'
+mode: agent
+model: Claude Sonnet 4
 ---
 業務プロセスからユースケース図を生成
 =========================

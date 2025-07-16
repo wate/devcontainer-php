@@ -1,5 +1,6 @@
 ---
-mode: 'agent'
+mode: agent
+model: Claude Sonnet 4
 ---
 「ペルソナ定義」ドキュメントの更新
 =========================

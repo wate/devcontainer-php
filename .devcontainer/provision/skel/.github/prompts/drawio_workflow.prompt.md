@@ -1,5 +1,6 @@
 ---
-mode: 'agent'
+mode: agent
+model: Claude Sonnet 4
 ---
 Draw.io XML形式の業務フロー図の作成
 =========================
