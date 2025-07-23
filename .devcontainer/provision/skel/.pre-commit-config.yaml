@@ -26,22 +26,22 @@ repos:
       - id: no-commit-to-branch
         args: [--branch, master, --branch, main, --branch, staging]
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.24.3
+    rev: v8.28.0
     hooks:
       - id: gitleaks
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.44.0
+    rev: v0.45.0
     hooks:
       - id: markdownlint-fix
         exclude: ^docs/schema/.*$
       - id: markdownlint
         exclude: ^docs/schema/.*$
   - repo: https://github.com/wate/pre-commit-mirrors-textlint
-    rev: v14.0.4-1
+    rev: v15.2.0-1
     hooks:
       - id: textlint-fix
         name: textlint-fix
-        exclude: ^(docs/schema|.github/prompts)/
+        exclude: ^(docs/schema|.github|.devcontainer/provision/skel)/
         args:
           - --fix
         additional_dependencies:
@@ -53,10 +53,11 @@ repos:
           - textlint-rule-ja-hiragana-keishikimeishi
           - textlint-rule-ja-hiragana-hojodoushi
           - "@textlint-ja/textlint-rule-no-synonyms"
+          - "@textlint-ja/textlint-rule-preset-ai-writing"
           - sudachi-synonyms-dictionary
           - textlint-rule-prh
       - id: textlint
-        exclude: ^(docs/schema|.github/prompts)/
+        exclude: ^(docs/schema|.github|.devcontainer/provision/skel)/
         additional_dependencies:
           - textlint
           - textlint-filter-rule-comments
@@ -66,6 +67,7 @@ repos:
           - textlint-rule-ja-hiragana-keishikimeishi
           - textlint-rule-ja-hiragana-hojodoushi
           - "@textlint-ja/textlint-rule-no-synonyms"
+          - "@textlint-ja/textlint-rule-preset-ai-writing"
           - sudachi-synonyms-dictionary
           - textlint-rule-prh
   - repo: https://github.com/digitalpulp/pre-commit-php
