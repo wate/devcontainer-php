@@ -41,7 +41,6 @@ repos:
     hooks:
       - id: textlint-fix
         name: textlint-fix
-        exclude: ^(docs/schema|.github|.devcontainer/provision/skel)/
         args:
           - --fix
         additional_dependencies:
@@ -57,7 +56,6 @@ repos:
           - sudachi-synonyms-dictionary
           - textlint-rule-prh
       - id: textlint
-        exclude: ^(docs/schema|.github|.devcontainer/provision/skel)/
         additional_dependencies:
           - textlint
           - textlint-filter-rule-comments

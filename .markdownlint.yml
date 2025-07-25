@@ -148,6 +148,7 @@ no-bare-urls: false
 ## MD039 - Spaces inside link text
 # no-space-in-links: true
 ## MD040 - Fenced code blocks should have a language specified
+## ※必須ではないが言語の指定を推奨する、言語指定を行う場合は2文字の言語コードを利用する
 fenced-code-language: false
 ## MD041 - First line in a file should be a top-level heading
 # first-line-heading:

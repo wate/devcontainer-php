@@ -1,12 +1,12 @@
 ---
-description: Markdown文書作成のためのカスタムインストラクション
+description: Markdownファイル作成・編集指針
 applyTo: '**/*.md'
 ---
-Markdown文書作成ガイドライン
+Markdownファイル作成・編集指針
 =========================
 
 このプロジェクトのMarkdown文書は、EditorConfig、markdownlint、textlintの設定に基づいて作成し、  
-一貫性のある高品質な技術文書を維持します。
+一貫性のある高品質な技術文書を維持します。  
 
 基本原則
 -------------------------
@@ -22,6 +22,7 @@ Markdown文書作成ガイドライン
 - 同一セグメント内の同じレベルでの見出しの重複は禁止
 - 裸のURLの使用を許可（リンクとして明示的に記述する必要はない）
 - コードブロックの言語指定は任意だが、可読性向上のため可能な限り指定する
+- YAMLフロントマターを含む文書では、適切なメタデータを記述する
 
 具体的な指示
 -------------------------
@@ -59,11 +60,22 @@ Markdown文書作成ガイドライン
     - 感嘆符や疑問符の後にスペースを入れる
     - コードブロック周辺にスペースを入れない
 - AI文章向けルール（@textlint-ja/preset-ai-writing）に準拠
+    - AIによる特徴的な記法や表現を避ける
 - 日本語表記の統一ルール
     - 副詞は平仮名に統一（ja-hiragana-fukushi）
     - 形式名詞は平仮名に統一（ja-hiragana-keishikimeishi）
     - 補助動詞は平仮名に統一（ja-hiragana-hojodoushi）
     - 同義語の使い分け（@textlint-ja/no-synonyms）を適用
+
+### AI記法の禁止事項
+
+- 「～について説明します」「～を見ていきましょう」等の解説調の表現を避ける
+- 「いかがでしたでしょうか」「まとめると」等のブログ的な記法を使用しない
+- 「以下の点が重要です」「注意すべき点として」等の冗長な導入文を避ける
+- 「皆さん」「読者の方」等の不特定多数を意識した表現を使用しない
+- 過度な感嘆符や絵文字の使用を避ける
+- 箇条書きの項目で「～すること」等の動詞の連続使用を避ける
+- 「ぜひ」「きっと」「おそらく」等の推測や勧誘表現を過度に使用しない
 
 ### 用語統一ルール
 
@@ -147,6 +159,7 @@ Markdown文書作成ガイドライン
     - 補助動詞の平仮名化（ja-hiragana-hojodoushi）
 - 同義語の使い分け（@textlint-ja/no-synonyms）
 - AI文章向けルール（@textlint-ja/preset-ai-writing）
+    - AI特有の表現パターンを検出・回避
 - コメントフィルター（comments）でtextlint-disable等を認識
 
 参考情報
@@ -160,5 +173,9 @@ Markdown文書作成ガイドライン
     - 略語: `docs/rules/abbreviations.yml`
     - 固有名詞: `docs/rules/names.yml`
     - タイプミス: `docs/rules/typo.yml`
-- コーディング規約: `docs/code_style.md`
-- プロジェクト概要: `docs/index.md`
+- プロジェクト関連ドキュメント
+    - コーディング規約: `docs/code_style.md`
+    - プロジェクト概要: `docs/index.md`
+    - 技術スタック: `docs/technology.md`
+    - テスト方針: `docs/test_policy.md`
+    - ディレクトリ構造: `docs/directory_structure.md`

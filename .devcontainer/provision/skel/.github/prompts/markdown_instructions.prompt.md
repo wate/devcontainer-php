@@ -26,6 +26,7 @@ GitHub Copilotカスタムインストラクションファイルの作成
     - EditorConfigの設定ファイル: `.editorconfig`
     - markdownlintの設定ファイル: `.markdownlint.yml`
     - textlintの設定ファイル: `.textlintrc.yml`
+- AIによって生成された文章に見られる特徴的な記法を記載しないように禁止事項に盛り込む
 - インストラクションファイル自体が上記のMarkdownの規約に則り記述すること
 
 禁止事項
@@ -47,10 +48,10 @@ GitHub Copilotカスタムインストラクションファイルの作成
 
 ```md
 ---
-description: {インストラクションの説明}
-applyTo: '{適用対象のファイルパターン}'
+description: Markdownファイル作成・編集指針
+applyTo: '**/*.md'
 ---
-{インストラクションのタイトル}
+Markdownファイル作成・編集指針
 =========================
 
 {インストラクションの内容}

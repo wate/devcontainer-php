@@ -51,6 +51,7 @@ shopt
 silversearcher
 skel
 Taskfile
+textlintignore
 textlintrc
 usecase
 venvs
